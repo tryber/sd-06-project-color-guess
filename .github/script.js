@@ -6,6 +6,6 @@
     let guess = ("(" + ([first, second, third].toString())) + (')');
 // adicionando texto da color no h2
     let guessTheColor = document.querySelector("#rgb-color")
-    guessTheColor.innerHTML = guess
+    // guessTheColor.innerHTML = guess
 
  
