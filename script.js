@@ -30,23 +30,32 @@ function generateRandomPalette() {
 
 window.onload = generateRandomPalette();
 
-let gameText = document.getElementById('answer')
+const gameText = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 resetButton.addEventListener('click', function () {
   generateRandomPalette();
-  
-  //Concatenei com os espaços para poder comparar no final! Não sabia como, catei na internet.
+
+  // Concatenei com os espaços para poder comparar no final! Não sabia como, catei na internet.
   const rightAnswerConcatenated = rightAnswer.split(',').join(', ');
   document.getElementById('rgb-color').innerText = rightAnswerConcatenated;
   gameText.innerText = 'Escolha uma cor';
+  const balls = document.getElementsByClassName('ball');
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].style.borderColor = 'black';
+  }
 });
 
-const balls = document.getElementsByClassName('ball');
+
 const ballsContainer = document.getElementById('ball-container');
 ballsContainer.addEventListener('click', function (event) {
   const rightColor = rgb + document.getElementById('rgb-color').innerText;
   const ball = event.target;
   const ballRGB = window.getComputedStyle(ball).getPropertyValue('background-color');
+  const balls = document.getElementsByClassName('ball');
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].style.borderColor = 'black';
+  }
+  event.target.style.borderColor = 'tomato';
   if (rightColor === ballRGB) {
     gameText.innerText = 'Acertou!';
   } else {
