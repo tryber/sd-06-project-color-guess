@@ -1,9 +1,23 @@
 //window.onload = function() {
-  const rgbText = document.querySelector('#rgb-color');
-  //const text = generateRandomColor();
-  rgbText.innerHTML = generateRandomColor();
 //}
+//let numScore;
+
+let numScore = 0;
+if (JSON.parse(localStorage.valor !== undefined)){
+
+  numScore = parseInt(localStorage.getItem('valor'));      
+}
+
+console.log(numScore);
+if (numScore === NaN){
+   numScore = 0;
+}
+
+const rgbText = document.querySelector('#rgb-color');
+rgbText.innerHTML = generateRandomColor();
 const ballsContainer = document.querySelector('.balls-container');
+const displayScore = document.querySelector('#score');
+displayScore.innerHTML = numScore;
 
 function generateRandomColor(){
   const red = Math.floor(Math.random() * 255);
@@ -38,6 +52,11 @@ ballsContainer.addEventListener('click', function(event){
   let answerText = document.querySelector('#answer');
   if (clickedBall.style.backgroundColor == `rgb${rgbText.innerHTML}`){
     answerText.innerHTML = "Acertou!";
+    numScore += 3;
+    displayScore.innerHTML = numScore;
+    //console.log(numScore);
+    localStorage.setItem('valor', numScore);
+    document.location.reload();
   }else {
     answerText.innerHTML = "Errou! Tente novamente!";
   }
@@ -47,5 +66,6 @@ const resetButton = document.querySelector('#reset-game');
 resetButton.addEventListener('click', function(){
   document.location.reload();
 });
+
 
 
