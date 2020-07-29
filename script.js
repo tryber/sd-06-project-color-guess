@@ -3,9 +3,10 @@ const ballsDiv = document.querySelectorAll('.ball');
 // const guessDiv = document.querySelector('.guess-container');
 const answerP = document.querySelector('#answer');
 const scoreP = document.querySelector('#score');
+const resetGame = document.querySelector('#reset-game');
 
 const getRandomRgbFromArray = (array) => {
-  const index = Math.ceil(Math.random() * array.length);
+  const index = Math.ceil(Math.random() * (array.length - 1));
   return array[index];
 };
 
@@ -53,8 +54,8 @@ const setScore = (score) => {
   scoreP.textContent = `Placar: ${score}`;
 };
 
-const RGB = generateRgb(6);
-const correctColor = getRandomRgbFromArray(RGB);
+let RGB = generateRgb(6);
+let correctColor = getRandomRgbFromArray(RGB);
 fillCircles(RGB);
 rgbParagraph.textContent = formatRgb(correctColor);
 console.log(RGB);
@@ -82,4 +83,14 @@ ballsDiv.forEach((item) => {
       setAnswer(0);
     }
   }, once);
+});
+
+resetGame.addEventListener('click', () => {
+  RGB = generateRgb(6);
+  correctColor = getRandomRgbFromArray(RGB);
+  fillCircles(RGB);
+  rgbParagraph.textContent = formatRgb(correctColor);
+  console.log(RGB);
+  setAnswer();
+  setScore(score);
 });
