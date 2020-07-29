@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 h1 {
   font-family: monospace, sans-serif;
   text-align: center;
@@ -20,4 +24,8 @@ h1 {
   display: inline-block;
   height: 100px;
   width: 100px;
+}
+
+.reset-button {
+  margin-top: 50px;
 }
