@@ -1,7 +1,3 @@
-//window.onload = function() {
-//}
-//let numScore;
-
 let numScore = 0;
 if (JSON.parse(localStorage.valor !== undefined)){
 
@@ -56,7 +52,7 @@ ballsContainer.addEventListener('click', function(event){
     displayScore.innerHTML = numScore;
     //console.log(numScore);
     localStorage.setItem('valor', numScore);
-    document.location.reload();
+    //document.location.reload();
   }else {
     answerText.innerHTML = "Errou! Tente novamente!";
   }
