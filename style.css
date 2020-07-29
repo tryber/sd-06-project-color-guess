@@ -5,5 +5,19 @@ h1 {
 
 .rgb-color {
   font-family: Ubuntu, sans-serif;
+  margin-top: 100px;
   text-align: center;
+}
+
+.ball-container {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.ball {
+  border: 3px solid black;
+  border-radius: 100%;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
 }
