@@ -1,6 +1,8 @@
 const rgbParagraph = document.querySelector('#rgb-color');
 const ballsDiv = document.querySelectorAll('.ball');
+// const guessDiv = document.querySelector('.guess-container');
 const answerP = document.querySelector('#answer');
+const scoreP = document.querySelector('#score');
 
 const getRandomRgbFromArray = (array) => {
   const index = Math.ceil(Math.random() * array.length);
@@ -33,22 +35,51 @@ const fillCircles = (RGB) => {
 
 const formatRgb = (str) => str.replace('rgb', '');
 
+const setAnswer = (hit) => {
+  switch (true) {
+    case (hit === 0):
+      answerP.textContent = 'Errou! Tente novamente!';
+      break;
+    case (hit === 1):
+      answerP.textContent = 'Acertou!';
+      break;
+    default:
+      answerP.textContent = 'Escolha uma cor';
+      break;
+  }
+};
+
+const setScore = (score) => {
+  scoreP.textContent = `Placar: ${score}`;
+};
+
 const RGB = generateRgb(6);
 const correctColor = getRandomRgbFromArray(RGB);
 fillCircles(RGB);
 rgbParagraph.textContent = formatRgb(correctColor);
-console.log(RGB)
-answerP.textContent = 'Escolha uma cor';
+console.log(RGB);
+setAnswer();
 let score = 0;
+setScore(score);
+
+const once = {
+  once: true,
+};
 
 ballsDiv.forEach((item) => {
   item.addEventListener('click', (event) => {
     if (event.target.style.backgroundColor === correctColor) {
       score += 3;
-      console.log(score)
+      setScore(score);
+      setAnswer(1);
+      event.preventDefault();
     } else if (score > 0) {
       score -= 1;
-      console.log(score)
+      setScore(score);
+      setAnswer(0);
+      event.preventDefault();
+    } else {
+      setAnswer(0);
     }
-  });
+  }, once);
 });
