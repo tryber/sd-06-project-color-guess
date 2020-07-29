@@ -9,12 +9,12 @@ h1 {
 
 .rgb-color {
   font-family: Ubuntu, sans-serif;
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
 .ball-container {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -24,6 +24,11 @@ h1 {
   display: inline-block;
   height: 100px;
   width: 100px;
+}
+
+.answer-text {
+  font-family: monospace, sans-serif;
+  margin-top: 50px;
 }
 
 .reset-button {

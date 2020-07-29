@@ -18,7 +18,6 @@ function getRightIndex() {
 let rightAnswer;
 function generateRandomPalette() {
   rightIndex = getRightIndex();
-  console.log(rightIndex);
   for (let i = 0; i < 6; i += 1) {
     if (i === rightIndex) {
       rightAnswer = generateRandomRGBColor();
@@ -27,19 +26,30 @@ function generateRandomPalette() {
       document.getElementsByClassName('ball')[i].style.backgroundColor = rgb + generateRandomRGBColor();
     }
   }
-  const balls = document.getElementsByClassName('ball');
-  for (let i = 0; i < balls.length; i += 1) {    
-    const bgcolor = window.getComputedStyle(balls[i]).getPropertyValue('background-color');
-    console.log(bgcolor);
-  }
 }
 
 window.onload = generateRandomPalette();
 
+let gameText = document.getElementById('answer')
 const resetButton = document.getElementById('reset-game');
 resetButton.addEventListener('click', function () {
   generateRandomPalette();
-  document.getElementById('rgb-color').innerHTML = rightAnswer;
+  
+  //Concatenei com os espaços para poder comparar no final! Não sabia como, catei na internet.
+  const rightAnswerConcatenated = rightAnswer.split(',').join(', ');
+  document.getElementById('rgb-color').innerText = rightAnswerConcatenated;
+  gameText.innerText = 'Escolha uma cor';
 });
 
-
+const balls = document.getElementsByClassName('ball');
+const ballsContainer = document.getElementById('ball-container');
+ballsContainer.addEventListener('click', function (event) {
+  const rightColor = rgb + document.getElementById('rgb-color').innerText;
+  const ball = event.target;
+  const ballRGB = window.getComputedStyle(ball).getPropertyValue('background-color');
+  if (rightColor === ballRGB) {
+    gameText.innerText = 'Acertou!';
+  } else {
+    gameText.innerText = 'Errou! Tente novamente!';
+  }
+});
