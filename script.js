@@ -5,6 +5,8 @@ function funcLoadAnswer(){
     loadAnswer.innerText = 'Escolha uma cor';
 }
 
+const getBallsClass = document.querySelectorAll('.ball');
+
 window.onload = function(){
     funcLoadAnswer()
 }

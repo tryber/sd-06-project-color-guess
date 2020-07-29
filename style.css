@@ -1,47 +1,44 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
 body{
-    font-size: 15px;
-    font-family: monospace, sans-serif;
+  font-family: monospace, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 .ball{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 1px solid black;
-    background-color: black;
-    display: inline-block;
-    margin-left: 20px;
-    margin-top: 50px;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  height: 60px;
+  margin-left: 20px;
+  margin-top: 50px;
+  width: 60px;
 }
 
 .title{
-    margin-left: 200px;
+  margin-left: 200px;
 }
 
 .reset-game{
-    margin-top: 60px;
-    margin-left: 250px;
-    border: none;
-    cursor: pointer;
-    width: 70px;
-    height: 70px;
-    padding: 10px 10px;
-    font-weight: bolder;
-    color: white;
-    text-align: center;
-    background-color: blue;
+  background-color: blue;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bolder;
+  height: 70px;
+  margin-left: 250px;
+  margin-top: 60px;
+  padding: 10px 10px;
+  text-align: center;
+  width: 70px;
 }
 
 .alinha{
-    display: inline-block;
-    margin-left: 250px;
+  display: inline-block;
+  margin-left: 250px;
 }
 
 .rgb-color{
-    margin-left: 250px;
+  margin-left: 250px;
 }
