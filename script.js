@@ -28,7 +28,7 @@ function generateRandomPalette() {
   }
 }
 
-window.onload = generateRandomPalette();
+// window.onload = generateRandomPalette();
 
 function resetBorders() {
   const balls = document.getElementsByClassName('ball');
@@ -65,8 +65,7 @@ ballsContainer.addEventListener('click', function (event) {
     if (!hasScored) {
       points += 3;
       document.getElementById('score').innerHTML = points;
-      
-      // hasScored = true;
+      hasScored = true;
     }
   } else {
     gameText.innerHTML = 'Errou! Tente novamente!';
