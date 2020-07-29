@@ -43,4 +43,9 @@ ballsContainer.addEventListener('click', function(event){
   }
 });
 
+const resetButton = document.querySelector('#reset-game');
+resetButton.addEventListener('click', function(){
+  document.location.reload();
+});
+
 

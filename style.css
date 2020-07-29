@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .ball {
   width: 30px;
   height: 30px;
