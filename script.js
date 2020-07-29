@@ -58,7 +58,6 @@ let RGB = generateRgb(6);
 let correctColor = getRandomRgbFromArray(RGB);
 fillCircles(RGB);
 rgbParagraph.textContent = formatRgb(correctColor);
-console.log(RGB);
 setAnswer();
 let score = 0;
 setScore(score);
@@ -90,7 +89,6 @@ resetGame.addEventListener('click', () => {
   correctColor = getRandomRgbFromArray(RGB);
   fillCircles(RGB);
   rgbParagraph.textContent = formatRgb(correctColor);
-  console.log(RGB);
   setAnswer();
   setScore(score);
 });
