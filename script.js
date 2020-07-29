@@ -62,13 +62,13 @@ ballsContainer.addEventListener('click', function (event) {
   resetBorders();
   event.target.style.borderColor = 'tomato';
   if (rightColor === ballRGB) {
-    gameText.innerHTML = 'Acertou! Novas cores!';
+    document.getElementById('answer').innerHTML = 'Acertou!';
     if (!hasScored) {
       points += 3;
-      pointsScore.innerText = points;
+      document.getElementById('score').innerHTML = points;
       hasScored = true;
     }
   } else {
-    gameText.innerText = 'Errou! Tente novamente!';
+    gameText.innerHTML = 'Errou! Tente novamente!';
   }
 });
