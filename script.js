@@ -28,7 +28,7 @@ function generateRandomPalette() {
   }
 }
 
-// window.onload = generateRandomPalette();
+window.onload = setGame;
 
 function resetBorders() {
   const balls = document.getElementsByClassName('ball');
@@ -37,11 +37,12 @@ function resetBorders() {
   }
 }
 
-let hasScored = false;
+let hasTried = false;
 const gameText = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
-resetButton.addEventListener('click', function () {
-  hasScored = false;
+
+function setGame() {
+  hasTried = false;
   generateRandomPalette();
 
   // Concatenei com os espaços para poder comparar no final! Não sabia como, catei na internet.
@@ -49,7 +50,9 @@ resetButton.addEventListener('click', function () {
   document.getElementById('rgb-color').innerText = rightAnswerConcatenated;
   gameText.innerText = 'Escolha uma cor';
   resetBorders();
-});
+}
+
+resetButton.addEventListener('click', setGame);
 
 
 const ballsContainer = document.getElementById('ball-container');
@@ -60,14 +63,14 @@ ballsContainer.addEventListener('click', function (event) {
   const ballRGB = window.getComputedStyle(ball).getPropertyValue('background-color');
   resetBorders();
   event.target.style.borderColor = 'tomato';
-  if (rightColor === ballRGB) {
-    document.getElementById('answer').innerHTML = 'Acertou!';
-    if (!hasScored) {
+  if (!hasTried) {
+    if (rightColor === ballRGB) {
+      document.getElementById('answer').innerHTML = 'Acertou!';
       points += 3;
       document.getElementById('score').innerHTML = points;
-      hasScored = true;
+    } else {
+      gameText.innerHTML = 'Errou! Tente novamente!';
     }
-  } else {
-    gameText.innerHTML = 'Errou! Tente novamente!';
-  }
+    hasTried = true;
+  } 
 });
