@@ -46,6 +46,42 @@ ball5.style.backgroundColor = colored5;
 const ball6 = document.querySelector('#ball-6');
 ball6.style.backgroundColor = colored6;
 
+//captura valor rgb
+const captureBall1 = ball1.style.backgroundColor;
+const captureBall2 = ball2.style.backgroundColor;
+const captureBall3 = ball3.style.backgroundColor;
+const captureBall4 = ball4.style.backgroundColor;
+const captureBall5 = ball5.style.backgroundColor;
+const captureBall6 = ball6.style.backgroundColor;
+
+//inserir rbg gerado
+function getRGBcolor(){
+  if (Math.ceil(Math.random()*6) === 1)
+    return captureBall1;
+  else if(Math.ceil(Math.random()*6 === 2))
+    return captureBall2;
+  else if(Math.ceil(Math.random()*6 === 3))
+    return captureBall3;
+  else if(Math.ceil(Math.random()*6 === 4))
+    return captureBall4;
+  else if(Math.ceil(Math.random()*6 === 5))
+    return captureBall5;
+  else
+    return captureBall6;
+}
+
+const insertRGBcolor = document.getElementById('rgb-color');
+insertRGBcolor.innerHTML = getRGBcolor();
+
+ball1.addEventListener('click', isThisCorrectBall);
+ball2.addEventListener('click', isThisCorrectBall);
+ball3.addEventListener('click', isThisCorrectBall);
+ball4.addEventListener('click', isThisCorrectBall);
+ball5.addEventListener('click', isThisCorrectBall);
+ball6.addEventListener('click', isThisCorrectBall);
+
+
+
 //pinta todas as bolas com a mesma cor
 //const allBalls = document.getElementsByClassName('ball');
 //function changeColorBall(){
@@ -56,6 +92,9 @@ ball6.style.backgroundColor = colored6;
 
 window.onload = function() {
   funcLoadAnswer();
-  console.log(makeRandomColor());
+  isThisCorrectBall();
 };
+
+
+
 
