@@ -30,9 +30,7 @@ const fillCircles = (RGB) => {
   });
 };
 
-const formatRgb = (string) => {
-  return string.replace('rgb', '');
-};
+const formatRgb = (str) => str.replace('rgb', '');
 
 window.onload = () => {
   const RGB = generateRgb(6);
