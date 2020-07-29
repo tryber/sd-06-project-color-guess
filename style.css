@@ -2,3 +2,17 @@ body {
   margin: 0 auto;
   width: 940px;
 }
+
+.guess-container {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin-bottom: 30px;
+}
+
+.ball {
+  border-radius: 50%;
+  border: 1px solid black;
+  height: 60px;
+  width: 60px;
+}
