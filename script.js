@@ -30,6 +30,13 @@ function generateRandomPalette() {
 
 window.onload = generateRandomPalette();
 
+function resetBorders() {
+  const balls = document.getElementsByClassName('ball');
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].style.borderColor = 'black';
+  }
+}
+
 const gameText = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 resetButton.addEventListener('click', function () {
@@ -39,10 +46,7 @@ resetButton.addEventListener('click', function () {
   const rightAnswerConcatenated = rightAnswer.split(',').join(', ');
   document.getElementById('rgb-color').innerText = rightAnswerConcatenated;
   gameText.innerText = 'Escolha uma cor';
-  const balls = document.getElementsByClassName('ball');
-  for (let i = 0; i < balls.length; i += 1) {
-    balls[i].style.borderColor = 'black';
-  }
+  resetBorders();
 });
 
 
@@ -51,10 +55,7 @@ ballsContainer.addEventListener('click', function (event) {
   const rightColor = rgb + document.getElementById('rgb-color').innerText;
   const ball = event.target;
   const ballRGB = window.getComputedStyle(ball).getPropertyValue('background-color');
-  const balls = document.getElementsByClassName('ball');
-  for (let i = 0; i < balls.length; i += 1) {
-    balls[i].style.borderColor = 'black';
-  }
+  resetBorders();
   event.target.style.borderColor = 'tomato';
   if (rightColor === ballRGB) {
     gameText.innerText = 'Acertou!';
