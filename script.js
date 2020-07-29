@@ -1,5 +1,6 @@
 const rgbParagraph = document.querySelector('#rgb-color');
 const ballsDiv = document.querySelectorAll('.ball');
+const answerP = document.querySelector('#answer');
 
 const getRandomRgbFromArray = (array) => {
   const index = Math.ceil(Math.random() * array.length);
@@ -32,9 +33,22 @@ const fillCircles = (RGB) => {
 
 const formatRgb = (str) => str.replace('rgb', '');
 
-window.onload = () => {
-  const RGB = generateRgb(6);
-  const correctColor = getRandomRgbFromArray(RGB);
-  fillCircles(RGB);
-  rgbParagraph.textContent = formatRgb(correctColor);
-};
+const RGB = generateRgb(6);
+const correctColor = getRandomRgbFromArray(RGB);
+fillCircles(RGB);
+rgbParagraph.textContent = formatRgb(correctColor);
+console.log(RGB)
+answerP.textContent = 'Escolha uma cor';
+let score = 0;
+
+ballsDiv.forEach((item) => {
+  item.addEventListener('click', (event) => {
+    if (event.target.style.backgroundColor === correctColor) {
+      score += 3;
+      console.log(score)
+    } else if (score > 0) {
+      score -= 1;
+      console.log(score)
+    }
+  });
+});
