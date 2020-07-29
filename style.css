@@ -13,6 +13,14 @@ h1 {
   text-align: center;
 }
 
+.score {
+  display: inline-block;
+  font-family: Ubuntu, sans-serif;
+  margin-right: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
 .ball-container {
   margin-top: 50px;
   text-align: center;

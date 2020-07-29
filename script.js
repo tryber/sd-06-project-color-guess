@@ -37,9 +37,11 @@ function resetBorders() {
   }
 }
 
+let hasScored = false;
 const gameText = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 resetButton.addEventListener('click', function () {
+  hasScored = false;
   generateRandomPalette();
 
   // Concatenei com os espaços para poder comparar no final! Não sabia como, catei na internet.
@@ -51,6 +53,8 @@ resetButton.addEventListener('click', function () {
 
 
 const ballsContainer = document.getElementById('ball-container');
+const pointsScore = document.getElementById('score');
+let points = 0;
 ballsContainer.addEventListener('click', function (event) {
   const rightColor = rgb + document.getElementById('rgb-color').innerText;
   const ball = event.target;
@@ -58,7 +62,12 @@ ballsContainer.addEventListener('click', function (event) {
   resetBorders();
   event.target.style.borderColor = 'tomato';
   if (rightColor === ballRGB) {
-    gameText.innerText = 'Acertou!';
+    gameText.innerHTML = 'Acertou! Novas cores!';
+    if (!hasScored) {
+      points += 3;
+      pointsScore.innerText = points;
+      hasScored = true;
+    }
   } else {
     gameText.innerText = 'Errou! Tente novamente!';
   }
