@@ -1,11 +1,11 @@
-body{
+body {
   font-family: monospace, sans-serif;
   font-size: 15px;
   margin: 0;
   padding: 0;
 }
 
-.ball{
+.ball {
   background-color: black;
   border: 1px solid black;
   border-radius: 50%;
@@ -16,29 +16,29 @@ body{
   width: 60px;
 }
 
-.title{
+.title {
   margin-left: 200px;
 }
 
-.reset-game{
+.reset-game {
   background-color: blue;
   border: none;
   color: white;
   cursor: pointer;
-  font-weight: bolder;
+  font-weight: 900;
   height: 70px;
   margin-left: 250px;
   margin-top: 60px;
-  padding: 10px 10px;
+  padding-bottom: 10px;
   text-align: center;
   width: 70px;
 }
 
-.alinha{
+.alinha {
   display: inline-block;
   margin-left: 250px;
 }
 
-.rgb-color{
+.rgb-color {
   margin-left: 250px;
 }
