@@ -5,11 +5,12 @@ function funcLoadAnswer() {
   loadAnswer.innerText = 'Escolha uma cor';
 }
 
-
+//gera numero aleatorio
 function makeRandomNumber(){
   return Math.ceil(Math.random()*255);
 }
 
+//gera rgb
 function makeRandomColor(){
   const R = makeRandomNumber();
   const G = makeRandomNumber();
@@ -18,16 +19,43 @@ function makeRandomColor(){
   return RGB;
 }
 
-const getBallsClass = document.querySelectorAll('.ball');
-function changeColorBGBalls(){
-for (let index = 0; index < getBallsClass.length; index++) {
-    getBallsClass[index].style.backgroundColor.makeRandomColor();
-    
-}
-}
+//retorna rgb
+const colored = makeRandomColor(makeRandomNumber);
+const colored2 = makeRandomColor(makeRandomNumber);
+const colored3 = makeRandomColor(makeRandomNumber);
+const colored4 = makeRandomColor(makeRandomNumber);
+const colored5 = makeRandomColor(makeRandomNumber);
+const colored6 = makeRandomColor(makeRandomNumber);
+
+//testa bola colorida
+const ball1 = document.querySelector('#ball-1');
+ball1.style.backgroundColor = colored;
+
+const ball2 = document.querySelector('#ball-2');
+ball2.style.backgroundColor = colored2;
+
+const ball3 = document.querySelector('#ball-3');
+ball3.style.backgroundColor = colored3;
+
+const ball4 = document.querySelector('#ball-4');
+ball4.style.backgroundColor = colored4;
+
+const ball5 = document.querySelector('#ball-5');
+ball5.style.backgroundColor = colored5;
+
+const ball6 = document.querySelector('#ball-6');
+ball6.style.backgroundColor = colored6;
+
+//pinta todas as bolas com a mesma cor
+//const allBalls = document.getElementsByClassName('ball');
+//function changeColorBall(){
+//    for (let index = 0; index < allBalls.length; index++) {
+//        allBalls[index].style.backgroundColor = colored;
+//        }        
+//}
 
 window.onload = function() {
   funcLoadAnswer();
-  changeColorBGBalls();
+  console.log(makeRandomColor());
 };
 
