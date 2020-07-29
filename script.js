@@ -1,6 +1,7 @@
 window.onload = function() {
 
     let rgb = [];
+    let placar = 0;
     
     function generateColor() {
         let r = Math.floor(Math.random() * 256);
@@ -38,7 +39,7 @@ window.onload = function() {
 
         setBallsColor();
         document.querySelector("#answer").innerHTML = "Escolha uma cor";
-
+        document.querySelector("#score").innerHTML = "Placar: " + placar;
     }
 
     starting();
@@ -60,6 +61,8 @@ window.onload = function() {
             document.querySelector("#answer").innerHTML = "Errou! Tente novamente!";
         } else {
             document.querySelector("#answer").innerHTML = "Acertou!";
+            placar += 3;
+            document.querySelector("#score").innerHTML = "Placar: " + placar;
         }
     })
 
@@ -70,6 +73,8 @@ window.onload = function() {
             document.querySelector("#answer").innerHTML = "Errou! Tente novamente!";
         } else {
             document.querySelector("#answer").innerHTML = "Acertou!";
+            placar += 3;
+            document.querySelector("#score").innerHTML = "Placar: " + placar;
         }
     })
 
@@ -80,6 +85,8 @@ window.onload = function() {
             document.querySelector("#answer").innerHTML = "Errou! Tente novamente!";
         } else {
             document.querySelector("#answer").innerHTML = "Acertou!";
+            placar += 3;
+            document.querySelector("#score").innerHTML = "Placar: " + placar;
         }
     })
 
@@ -90,6 +97,8 @@ window.onload = function() {
             document.querySelector("#answer").innerHTML = "Errou! Tente novamente!";
         } else {
             document.querySelector("#answer").innerHTML = "Acertou!";
+            placar += 3;
+            document.querySelector("#score").innerHTML = "Placar: " + placar;
         }
     })
 
@@ -100,6 +109,8 @@ window.onload = function() {
             document.querySelector("#answer").innerHTML = "Errou! Tente novamente!";
         } else {
             document.querySelector("#answer").innerHTML = "Acertou!";
+            placar += 3;
+            document.querySelector("#score").innerHTML = "Placar: " + placar;
         }
     })
 
@@ -110,6 +121,8 @@ window.onload = function() {
             document.querySelector("#answer").innerHTML = "Errou! Tente novamente!";
         } else {
             document.querySelector("#answer").innerHTML = "Acertou!";
+            placar += 3;
+            document.querySelector("#score").innerHTML = "Placar: " + placar;
         }
     })
 
