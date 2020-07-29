@@ -53,7 +53,6 @@ resetButton.addEventListener('click', function () {
 
 
 const ballsContainer = document.getElementById('ball-container');
-const pointsScore = document.getElementById('score');
 let points = 0;
 ballsContainer.addEventListener('click', function (event) {
   const rightColor = rgb + document.getElementById('rgb-color').innerText;
@@ -66,7 +65,8 @@ ballsContainer.addEventListener('click', function (event) {
     if (!hasScored) {
       points += 3;
       document.getElementById('score').innerHTML = points;
-      hasScored = true;
+      
+      // hasScored = true;
     }
   } else {
     gameText.innerHTML = 'Errou! Tente novamente!';
