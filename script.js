@@ -68,6 +68,7 @@ const once = {
 
 ballsDiv.forEach((item) => {
   item.addEventListener('click', (event) => {
+    event.target.style.border = '3px solid blue';
     if (event.target.style.backgroundColor === correctColor) {
       score += 3;
       setScore(score);
@@ -84,6 +85,12 @@ ballsDiv.forEach((item) => {
   }, once);
 });
 
+const resetBorder = () => {
+  ballsDiv.forEach((item) => {
+    item.style.border = '1px solid black';
+  });
+};
+
 resetGame.addEventListener('click', () => {
   RGB = generateRgb(6);
   correctColor = getRandomRgbFromArray(RGB);
@@ -91,4 +98,5 @@ resetGame.addEventListener('click', () => {
   rgbParagraph.textContent = formatRgb(correctColor);
   setAnswer();
   setScore(score);
+  resetBorder();
 });
