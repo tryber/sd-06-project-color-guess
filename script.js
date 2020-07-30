@@ -54,7 +54,7 @@ const captureBall4 = ball4.style.backgroundColor;
 const captureBall5 = ball5.style.backgroundColor;
 const captureBall6 = ball6.style.backgroundColor;
 
-//inserir rbg gerado
+//funcao rbg gerado
 function getRGBcolor(){
   if (Math.ceil(Math.random()*6) === 1)
     return captureBall1;
@@ -70,29 +70,59 @@ function getRGBcolor(){
     return captureBall6;
 }
 
+//insere rgb na section
 const insertRGBcolor = document.getElementById('rgb-color');
 insertRGBcolor.innerHTML = getRGBcolor();
 
-ball1.addEventListener('click', isThisCorrectBall);
-ball2.addEventListener('click', isThisCorrectBall);
-ball3.addEventListener('click', isThisCorrectBall);
-ball4.addEventListener('click', isThisCorrectBall);
-ball5.addEventListener('click', isThisCorrectBall);
-ball6.addEventListener('click', isThisCorrectBall);
+ball1.addEventListener('click', isThisCorrect);
+function isThisCorrect(event) {
+  if (captureBall1 === insertRGBcolor)
+    loadAnswer.innerText = 'Acertou!'
+  else (captureBall1 != insertRGBcolor)
+    loadAnswer.innerText = 'Errou! Tente novamente!'
+}
 
+ball2.addEventListener('click', isThisCorrect);
+function isThisCorrect(event) {
+  if (captureBall2 == insertRGBcolor)
+    loadAnswer.innerText = 'Acertou!'
+  else (captureBall2 != insertRGBcolor)
+    loadAnswer.innerText = 'Errou! Tente novamente'
+}
 
+ball3.addEventListener('click', isThisCorrect);
+function isThisCorrect(event) {
+  if (captureBall3 == insertRGBcolor)
+    loadAnswer.innerText = 'Acertou!'
+  else (captureBall3 != insertRGBcolor)
+    loadAnswer.innerText = 'Errou! Tente novamente'
+}
 
-//pinta todas as bolas com a mesma cor
-//const allBalls = document.getElementsByClassName('ball');
-//function changeColorBall(){
-//    for (let index = 0; index < allBalls.length; index++) {
-//        allBalls[index].style.backgroundColor = colored;
-//        }        
-//}
+ball4.addEventListener('click', isThisCorrect);
+function isThisCorrect(event) {
+  if (captureBall4 == insertRGBcolor)
+    loadAnswer.innerText = 'Acertou!'
+  else (captureBall4 != insertRGBcolor)
+    loadAnswer.innerText = 'Errou! Tente novamente'
+}
 
+ball5.addEventListener('click', isThisCorrect);
+function isThisCorrect(event) {
+  if (captureBall5 == insertRGBcolor)
+    loadAnswer.innerText = 'Acertou!'
+  else (captureBall5 != insertRGBcolor)
+    loadAnswer.innerText = 'Errou! Tente novamente'
+}
+
+ball6.addEventListener('click', isThisCorrect);
+function isThisCorrect(event) {
+  if (captureBall6 == insertRGBcolor)
+    loadAnswer.innerText = 'Acertou!'
+  else (captureBall6 != insertRGBcolor)
+    loadAnswer.innerText = 'Errou! Tente novamente'
+}
 window.onload = function() {
   funcLoadAnswer();
-  isThisCorrectBall();
 };
 
 
