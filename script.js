@@ -9,7 +9,7 @@ function scoreTracker() {
   currentScore.innerText = score;
 }
 
-scoreTracker()
+scoreTracker();
 
 colorOptions.addEventListener('click', function () {
   const selectedColor = event.target;
