@@ -8,3 +8,21 @@ function generateColor() {
     randomColor.innerHTML = colorResult;
 }
 generateColor();
+
+//Generate the balls' color
+let balls = document.querySelectorAll('.balls');
+
+function rgbColorBall() {
+    const randomNumber = (Math.floor(Mat.random())) * balls.length; //Generate a number between 0 and 5
+    for (let index = 0; index < balls.length; index += 1) {
+        if (index === randomNumber) {
+            let correctAnswer = randomColor.innerHTML;
+            correctAnswer = 'rgb' + correctAnswer;
+            balls[index].style.backgroundColor = correctAnswer;
+        } else {
+            let rgb = generateColor();
+            balls[index].style.backgroundColor = rgb;
+        }
+    }
+}
+
