@@ -1,6 +1,6 @@
 const rgbParagraph = document.querySelector('#rgb-color');
 const ballsDiv = document.querySelectorAll('.ball');
-// const guessDiv = document.querySelector('.guess-container');
+const guessDiv = document.querySelector('.guess-container');
 const answerP = document.querySelector('#answer');
 const scoreP = document.querySelector('#score');
 const resetGame = document.querySelector('#reset-game');
@@ -62,12 +62,11 @@ setAnswer();
 let score = 0;
 setScore(score);
 
-const once = {
-  once: true,
-};
-
-ballsDiv.forEach((item) => {
-  item.addEventListener('click', (event) => {
+// variavel de controle para impedir mais de um click
+let clicks = 0;
+guessDiv.addEventListener('click', (event) => {
+  if (event.target.classList.contains('ball') && clicks === 0) {
+    clicks += 1;
     event.target.style.border = '3px solid blue';
     if (event.target.style.backgroundColor === correctColor) {
       score += 3;
@@ -82,7 +81,7 @@ ballsDiv.forEach((item) => {
     } else {
       setAnswer(0);
     }
-  }, once);
+  }
 });
 
 const resetBorder = () => {
@@ -99,4 +98,5 @@ resetGame.addEventListener('click', () => {
   setAnswer();
   setScore(score);
   resetBorder();
+  clicks = 0;
 });
