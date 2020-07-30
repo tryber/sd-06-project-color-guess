@@ -44,7 +44,7 @@ function resetGame(event) {
   hand.className = 'far fa-hand-point-down hands';
 }
 
-const resetBtn = document.querySelector('#reset');
+const resetBtn = document.querySelector('#reset-game');
 resetBtn.addEventListener('click', resetGame);
 
 function checkAnswer(event) {
