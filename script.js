@@ -1,12 +1,12 @@
 
-functionalities = {
+const functionalities = {
   generateColorBalls: function generateBalls(numberOfColors) {
     for (let i = 0; i < numberOfColors; i += 1) {
       functionalities.generateColorBall();
     }
   },
   generateColorBall: function generateColors() {
-    const colorsContainer =document.querySelector('#colors-container');
+    const colorsContainer = document.querySelector('#colors-container');
     const colorElement = document.createElement('li');
     colorElement.className = 'ball';
     colorElement.style.backgroundColor = functionalities.generateRandomColor();
@@ -33,12 +33,11 @@ functionalities = {
   verifyColor: function verifyColor() {
     const selectedBackground = document.querySelector('#rgb-color').innerHTML;
     const scoreElement = document.querySelector('#score');
-    let score = parseInt(scoreElement.innerHTML);
+    let score = parseInt(scoreElement.innerHTML, 10);
     if (event.target.style.backgroundColor === selectedBackground) {
       const answerElement = document.querySelector('#answer');
       answerElement.innerHTML = 'Acertou!';
       score += 3;
-      //scoreElement.style.display = 'block';
     } else {
       const answerElement = document.querySelector('#answer');
       answerElement.innerHTML = 'Errou! Tente novamente!';
@@ -52,6 +51,7 @@ functionalities = {
     for (let i = 0; i < allColorBalls.length; i += 1) {
       colorsContainer.removeChild(allColorBalls[i]);
     }
+    console.log('oii')
     functionalities.generateColorBalls(numberOfColors);
     functionalities.generateRandomColorToBeGuessed();
   },
@@ -59,13 +59,8 @@ functionalities = {
 
 window.onload = function () {
   const numberOfColors = 6;
-  functionalities.generateColorBalls(numberOfColors);
-    
+  functionalities.generateColorBalls(numberOfColors);    
   functionalities.generateRandomColorToBeGuessed();
-  
   const buttonResetElement = document.querySelector('#reset-game');
-  buttonResetElement.addEventListener('click', (event) => functionalities.resetGame(numberOfColors));
-
-  //const scoreElement = document.querySelector('#score');
-  //scoreElement.style.display = 'none';
+  buttonResetElement.addEventListener('click', () => functionalities.resetGame(numberOfColors));
 };
