@@ -4,7 +4,7 @@ window.onload = function () {
   const ballsPalette = document.querySelector('#balls');
 
   function randomNumbers() {
-    return Math.floor(Math.random() * 255)
+    return Math.floor(Math.random() * 255);
   }
 
   function generatorRandomColors() {
@@ -22,9 +22,6 @@ window.onload = function () {
     }
     let valorApresentado = arrayParaComparacao[Math.floor(Math.random() * arrayParaComparacao.length)];
     guessing.innerHTML = valorApresentado;// como tirar o 'RGB' acrescentado na linha 20?
-    console.log(valorApresentado) // teste para formação do array e RGB da tela
-    console.log(arrayParaComparacao) // teste para formação do array e RGB da tela
-    return valorApresentado; // agora tenho que comparar este valor com o que foi clicado
   }
   const resetButton = document.getElementById('reset-game');
   resetButton.addEventListener('click', coloringCircles);
@@ -34,9 +31,13 @@ function chooseBall(event) {
   document.querySelector('.selected').classList.remove('selected');
   event.target.classList.add('selected');
   let selectedColor = document.querySelector('.selected').style.backgroundColor;
-  console.log(selectedColor)
-  return selectedColor; // tenho que comparar este com o valor apresentado que vem da função coloringCircles
-  // ?? ou comparativo é aqui
+  const valorApresentado = document.getElementById('rgb-color').innerHTML;
+  const textBoxResult = document.getElementById('answer');
+  if(valorApresentado === selectedColor) {
+    textBoxResult.innerHTML ="Acertou!";
+  } else {
+    textBoxResult.innerHTML ="Errou! Tente novamente!";
+  }
 }
 
 ballsPalette.addEventListener('click', chooseBall);
