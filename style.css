@@ -10,3 +10,9 @@
   margin-right: 10px;
   width: 40px;
 }
+
+.reset-button {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
