@@ -1,6 +1,6 @@
 const colorOptions = document.querySelector('.color-options');
 const correctColor = document.querySelector('#rgb-color');
-let answerText = document.querySelector('#answer');
+const answerText = document.querySelector('#answer');
 
 colorOptions.addEventListener('click', function () {
   const selectedColor = event.target;
@@ -21,7 +21,7 @@ function colorParam() {
 function getRandomColor() {
   const newRgbRng = `rgb(${colorParam()}, ${colorParam()}, ${colorParam()})`;
   return newRgbRng;
-};
+}
 
 function colorAssigner() {
   const colorsToSet = document.querySelector('.color-options').children;
@@ -31,14 +31,14 @@ function colorAssigner() {
   }
 
   function pickingTheRight() {
+    const pickedColor = colorsToSet[pickedNumber].style.backgroundColor;
     let pickedNumber = Math.floor(Math.random() * 6);
-    let pickedColor = colorsToSet[pickedNumber].style.backgroundColor;
     return pickedColor.substr(3);
   }
 
   answerText.innerText = 'Escolha uma cor';
   correctColor.innerText = pickingTheRight();
-};
+}
 
 colorAssigner();
 
