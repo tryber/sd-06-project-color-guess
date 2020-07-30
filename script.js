@@ -6,7 +6,8 @@ window.onload = function name(params) {
 
 const showColor = document.querySelector('#rgb-color');
 const ballsList = document.querySelector('#create-balls');
-const avaliator = document.querySelector('#answer')
+const avaliator = document.querySelector('#answer');
+const resetBtn = document.querySelector('#reset-game');
 let colorToMatchStr = '';
 let colorToMatchStr2 = '';
 let colors = [];
@@ -41,7 +42,6 @@ function createBalls() {
   } 
 }
 
-
  ballsList.addEventListener('click', function (event) {
   if (event.target.style.backgroundColor === colorToMatchStr2) {
     avaliator.innerHTML = "Acertou!";
@@ -50,6 +50,8 @@ function createBalls() {
   }
  })
 
-
+  resetBtn.addEventListener('click', function () {
+    location.reload();
+  })
 
 
