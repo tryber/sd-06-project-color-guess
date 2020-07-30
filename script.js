@@ -40,7 +40,7 @@ var counter = 0;
 scored.innerHTML = counter;
 container.addEventListener('click', function() {
   if (event.target.style.backgroundColor === ('rgb' + paragraph.innerHTML)) {
-    counter += 1;
+    counter += 3;
     result.innerHTML = 'Acertou!';
     scored.innerHTML = counter;
   } else {
