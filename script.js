@@ -26,15 +26,17 @@ aleatoryRgb = () => {
 
 window.onload = aleatoryRgb();
 buttonReset.addEventListener('click', aleatoryRgb)
-
+buttonReset.addEventListener('click', function() {
+    answer.innerHTML = 'Escolha uma cor'
+})
 
 checkingColor = () => {
     for(let i = 0; i < balls.length; i++) {
         balls[i].addEventListener('click', function() {
             if(textRgb.innerHTML === balls[i].style.backgroundColor) {
-                answer.innerText = "Você acertou!"
+                answer.innerText = "Acertou!"
             } else {
-                answer.innerText = "Tente novamente"
+                answer.innerText = "Errou! Tente novamente!"
             }
         })
     }
