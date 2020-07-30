@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+}
+#title {
+    text-align: center;
+}
+
+.balls-container {
+    display: inline-flex;
+    padding: 10px;
+    margin-left: 80px;
+}
+
+.ball {
+    border-radius: 50%/50%;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 5px;
+}
