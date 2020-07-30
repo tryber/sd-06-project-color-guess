@@ -35,9 +35,14 @@ function colorP() {
 const paragraph = document.querySelector('#rgb-color');
 paragraph.innerHTML = colorP();
 const result = document.querySelector('#answer');
+const scored = document.querySelector('#score');
+var counter = 0;
+scored.innerHTML = counter;
 container.addEventListener('click', function() {
   if (event.target.style.backgroundColor === ('rgb' + paragraph.innerHTML)) {
+    counter += 1;
     result.innerHTML = 'Acertou!';
+    scored.innerHTML = counter;
   } else {
     result.innerHTML = 'Errou! Tente novamente!';
   }
