@@ -2,7 +2,7 @@ function randomNumber() {
   const max = 256;
   const min = 0;
   for (let i = 0; i < 3; i += 1) {
-    let number = Math.floor(Math.random() * (max - min)) + min;
+    var number = Math.floor(Math.random() * (max - min)) + min;
   }
   return number;
 }
