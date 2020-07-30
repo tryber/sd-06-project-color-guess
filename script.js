@@ -1,6 +1,15 @@
 const colorOptions = document.querySelector('.color-options');
 const correctColor = document.querySelector('#rgb-color');
 const answerText = document.querySelector('#answer');
+const resetButton = document.querySelector('#reset-game');
+const currentScore = document.querySelector('#score');
+let score = 0;
+
+function scoreTracker() {
+  currentScore.innerText = score;
+}
+
+scoreTracker()
 
 colorOptions.addEventListener('click', function () {
   const selectedColor = event.target;
@@ -8,6 +17,8 @@ colorOptions.addEventListener('click', function () {
 
   if (rgbOfSelectedColor.substr(3) === correctColor.innerText) {
     answerText.innerText = 'Acertou!';
+    score += 3;
+    scoreTracker()
   } else {
     answerText.innerText = 'Errou! Tente novamente!';
   }
@@ -31,8 +42,8 @@ function colorAssigner() {
   }
 
   function pickingTheRight() {
+    const pickedNumber = Math.floor(Math.random() * 6);
     const pickedColor = colorsToSet[pickedNumber].style.backgroundColor;
-    let pickedNumber = Math.floor(Math.random() * 6);
     return pickedColor.substr(3);
   }
 
@@ -41,7 +52,5 @@ function colorAssigner() {
 }
 
 colorAssigner();
-
-const resetButton = document.querySelector('#reset-game');
 
 resetButton.addEventListener('click', colorAssigner);
