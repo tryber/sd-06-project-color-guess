@@ -22,6 +22,7 @@ window.onload = function () {
     }
     let valorApresentado = arrayParaComparacao[Math.floor(Math.random() * arrayParaComparacao.length)];
     guessing.innerHTML = valorApresentado;// como tirar o 'RGB' acrescentado na linha 20?
+    document.getElementById('answer').innerText ="Escolha uma cor";
   }
   const resetButton = document.getElementById('reset-game');
   resetButton.addEventListener('click', coloringCircles);
