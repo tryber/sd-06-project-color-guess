@@ -1,8 +1,7 @@
-window.onload = function name(params) {
+window.onload = function name() {
   randomColors();
   colorToMatch();
   createBalls();
-  carregarPag();
 }
 
 const showColor = document.querySelector('#rgb-color');
@@ -57,16 +56,18 @@ function createBalls() {
  })
 
   resetBtn.addEventListener('click', function () {
-    const scoreSave = scoreShow.innerHTML;
-    localStorage.setItem('score', scoreSave);
-    location.reload();
-  })
-
-  function carregarPag() {
-    if (localStorage.score !== undefined) {
-      scoreShow.innerHTML = localStorage.score;
+    showColor.innerHTML = "";
+    colors = [];
+    let index = 0;
+    while (index < 6) {
+      const rmvBalls = document.querySelector('.ball')
+      index += 1;
+      ballsList.removeChild(rmvBalls)
     }
-  }
+    randomColors();
+    colorToMatch();
+    createBalls();
+  })
 
   function score() {
     total = pontos += 3;
