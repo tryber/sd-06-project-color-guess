@@ -55,7 +55,7 @@ h2 {
   letter-spacing: 0.1em;
   margin: 0 0 20px 0;
   text-align: center;
-  text-shadow: 0 0 6px #000000, 0 0 2px #000000;
+  text-shadow: 0 0 6px black, 0 0 2px black;
 }
 
 #answer {
@@ -65,8 +65,8 @@ h2 {
 
 #answer .hands {
   font-size: 1.6em;
-  opacity: .8;
   margin: 0 8px;
+  opacity: 0.8;
   vertical-align: top;
 }
 
@@ -75,8 +75,8 @@ h2 {
   float: right;
   font-size: 1.7em;
   position: relative;
-  top: -35px;
   right: 15%;
+  top: -35px;
 }
 
 #reset:hover {
@@ -84,7 +84,7 @@ h2 {
 }
 
 #balls {
-  background: rgba(240, 243, 250, .9);
+  background: rgba(240, 243, 250, 0.9);
   border-radius: 50px 0;
   margin: auto;
   padding: 6px 0 0;

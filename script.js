@@ -7,9 +7,9 @@ const resultElement = document.querySelector('#answer');
 const hand = document.querySelector('#hand');
 
 function genColors() {
-  let rgbColor1 = (Math.round(Math.random() * 255));
-  let rgbColor2 = (Math.round(Math.random() * 255));
-  let rgbColor3 = (Math.round(Math.random() * 255));
+  const rgbColor1 = (Math.round(Math.random() * 255));
+  const rgbColor2 = (Math.round(Math.random() * 255));
+  const rgbColor3 = (Math.round(Math.random() * 255));
   rgbRandom = '(' + rgbColor1 + ', ' + rgbColor2 + ', ' + rgbColor3 + ')';
 }
 
@@ -29,7 +29,7 @@ function paintBalls() {
 paintBalls();
 
 function pickRGB() {
-  let randomBall = Math.floor(Math.random() * 6);
+  const randomBall = Math.floor(Math.random() * 6);
   randomBallRGB = balls.item(randomBall).style.backgroundColor;
   answerRGB = randomBallRGB.substr(3);
   pickedColorElement.innerHTML = answerRGB;
