@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+}
+
+.ball {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.container-rgb-placar {
+  margin: 20px;
+}
+
+.rgb {
+  font-size: 20px;
+}
+
+.choose-color{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn {
+  height: 30px;
+  width: 140px;
+}
