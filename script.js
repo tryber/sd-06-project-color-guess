@@ -1,17 +1,35 @@
-window.onclick = function() {
-    //if (event.target.backgroundColor === 
+function randomNumber() {
+  let max = 256;
+  let min = 0;
+  for (let i = 0; i < 3; i += 1) {
+    var number = Math.floor(Math.random() * (max - min)) + min;
+  }
+  return number;
 }
-function gera_cor(){
-    var hexadecimais = '0123456789ABCDEF';
-    var cor = '#';
-    for (var i = 0; i < 6; i++ ) {
-        cor += hexadecimais[Math.floor(Math.random() * 16)];
-    }
-    return cor;
+function randomColor() {
+  let color = 'rgb(';
+  color += randomNumber();
+  color += ',';
+  color += randomNumber();
+  color += ',';
+  color += randomNumber();
+  color += ')';
+  return color;
 }
-for(let i = 1; i < 7; i++) {
-    let divCor = document.createElement("div");
-    divCor.className = "ball";
-    divCor.style.backgroundColor = gera_cor();
-    document.querySelector("#container-balls").appendChild(divCor);    
+let numberColor = Math.floor(Math.random()*6);
+for (let i = 0; i < 6; i += 1) {
+  let divCor = document.createElement('div');
+  divCor.className = 'ball';
+  divCor.style.backgroundColor = randomColor();
+  document.querySelector('#container-balls').appendChild(divCor);
+}
+let colorChoice = document.querySelectorAll('.ball')[numberColor].style.backgroundColor;
+colorChoice = colorChoice.substr(3);
+document.querySelector('#rgb-color').innerHTML = colorChoice;
+window.onclick = function () {
+  if (event.target.style.backgroundColor === ('rgb' + colorChoice)) {
+    document.querySelector('#answer').innerHTML = 'Acertou!';
+  } else {
+    document.querySelector('#answer').innerHTML = 'Errou! Tente novamente!';
+  }
 }
