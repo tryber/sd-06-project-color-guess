@@ -6,7 +6,9 @@ window.onload = function name(params) {
 
 const showColor = document.querySelector('#rgb-color');
 const ballsList = document.querySelector('#create-balls');
+const avaliator = document.querySelector('#avaliator')
 let colorToMatchStr = '';
+let colorToMatchStr2 = '';
 let colors = [];
 
 function randomColors() {
@@ -24,6 +26,7 @@ function randomColors() {
 function colorToMatch() {
   colorToMatchStr = colors[Math.floor(Math.random() * 6)]
   showColor.innerHTML = colorToMatchStr;
+  colorToMatchStr2 = 'rgb'+colorToMatchStr;
   console.log(colorToMatchStr);
 }
 
@@ -37,6 +40,16 @@ function createBalls() {
     i += 1;
   } 
 }
+
+
+ ballsList.addEventListener('click', function (event) {
+  if (event.target.style.backgroundColor === colorToMatchStr2) {
+    avaliator.innerHTML = "Acertou!";
+  }else{
+    avaliator.innerHTML = "Errou! Tente novamente!";
+  }
+ })
+
 
 
 
