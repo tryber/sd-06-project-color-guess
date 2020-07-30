@@ -18,7 +18,7 @@ colorOptions.addEventListener('click', function () {
   if (rgbOfSelectedColor.substr(3) === correctColor.innerText) {
     answerText.innerText = 'Acertou!';
     score += 3;
-    scoreTracker()
+    scoreTracker();
   } else {
     answerText.innerText = 'Errou! Tente novamente!';
   }
