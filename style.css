@@ -3,12 +3,12 @@ body {
 }
 
 .ball {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
   border: 1px solid black;
+  border-radius: 50%;
   display: inline-block;
+  height: 50px;
   margin-bottom: 10px;
+  width: 50px;
 }
 
 .container-rgb-placar {
@@ -19,9 +19,9 @@ body {
   font-size: 20px;
 }
 
-.choose-color{
+.choose-color {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .btn {
