@@ -17,7 +17,6 @@ const string4 = ';';
 
 function randomColors() {
   let j = 0;
-
   while (j < 6) {
     const r = Math.floor(Math.random() * 255);
     const g = Math.floor(Math.random() * 255);
@@ -28,7 +27,7 @@ function randomColors() {
 }
 
 function colorToMatch() {
-  colorToMatchStr = colors[Math.floor(Math.random() * 6)]
+  colorToMatchStr = colors[Math.floor(Math.random() * 6)];
   showColor.innerHTML = colorToMatchStr;
   colorToMatchStr2 = string2 + colorToMatchStr;
 }
@@ -47,13 +46,12 @@ function createBalls() {
 function score() {
   total = pontos += grade;
   scoreShow.innerHTML = string1 + total;
-} 
+}
 
 ballsList.addEventListener('click', function (event) {
   if (event.target.style.backgroundColor === colorToMatchStr2) {
-  avaliator.innerHTML = 'Acertou!';
+    avaliator.innerHTML = 'Acertou!';
     score();
-
   } else {
     avaliator.innerHTML = 'Errou! Tente novamente!';
   }
