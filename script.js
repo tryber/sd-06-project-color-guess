@@ -51,7 +51,6 @@ const functionalities = {
     for (let i = 0; i < allColorBalls.length; i += 1) {
       colorsContainer.removeChild(allColorBalls[i]);
     }
-    console.log('oii')
     functionalities.generateColorBalls(numberOfColors);
     functionalities.generateRandomColorToBeGuessed();
   },
@@ -59,7 +58,7 @@ const functionalities = {
 
 window.onload = function () {
   const numberOfColors = 6;
-  functionalities.generateColorBalls(numberOfColors);    
+  functionalities.generateColorBalls(numberOfColors);
   functionalities.generateRandomColorToBeGuessed();
   const buttonResetElement = document.querySelector('#reset-game');
   buttonResetElement.addEventListener('click', () => functionalities.resetGame(numberOfColors));
