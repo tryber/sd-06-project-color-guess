@@ -11,19 +11,22 @@ function generateColor() {
 randomColor.innerHTML = generateColor();
 
 //Generate the balls' color
-let balls = document.querySelectorAll('.balls');
+let balls = document.querySelectorAll('.ball');
+//console.log(balls);
 
 function rgbColorBall() {
-    const randomNumber = (Math.floor(Mat.random())) * balls.length; //Generate a number between 0 and 5
+    const randomNumber = (Math.floor(Math.random())) * balls.length; //Generate a number between 0 and 5
+    //console.log(randomNumber);
     for (let index = 0; index < balls.length; index += 1) {
         if (index === randomNumber) {
             let correctAnswer = randomColor;
             correctAnswer = 'rgb' + correctAnswer;
             balls[index].style.backgroundColor = correctAnswer;
+            console.log(correctAnswer);
         } else {
-            let rgb = generateColor();
-            balls[index].style.backgroundColor = rgb;
+        let rgb = generateColor();
+        balls[index].style.backgroundColor = rgb;
         }
     }
 }
-
+rgbColorBall();
