@@ -43,3 +43,9 @@ for (let i = 0; i < document.querySelectorAll('.ball').length; i += 1) {
     }
   });
 }
+
+document.getElementById('reset-game').addEventListener('click', function () {
+  document.getElementById('answer').innerText = 'Escolha uma cor';
+  generateChallenge();
+  generateAnswers();
+});
