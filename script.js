@@ -32,22 +32,28 @@ functionalities = {
   },
   verifyColor: function verifyColor() {
     const selectedBackground = document.querySelector('#rgb-color').innerHTML;
+    const scoreElement = document.querySelector('#score');
+    let score = parseInt(scoreElement.innerHTML);
     if (event.target.style.backgroundColor === selectedBackground) {
       const answerElement = document.querySelector('#answer');
       answerElement.innerHTML = 'Acertou!';
+      score += 3;
+      //scoreElement.style.display = 'block';
     } else {
       const answerElement = document.querySelector('#answer');
       answerElement.innerHTML = 'Errou! Tente novamente!';
+      score += 0;
     }
+    scoreElement.innerHTML = score.toString();
   },
   resetGame: function reset(numberOfColors) {
-    functionalities.generateRandomColorToBeGuessed();
     const allColorBalls = document.querySelectorAll('.ball');
     const colorsContainer = document.querySelector('ul');
     for (let i = 0; i < allColorBalls.length; i += 1) {
       colorsContainer.removeChild(allColorBalls[i]);
     }
     functionalities.generateColorBalls(numberOfColors);
+    functionalities.generateRandomColorToBeGuessed();
   },
 };
 
@@ -59,4 +65,7 @@ window.onload = function () {
   
   const buttonResetElement = document.querySelector('#reset-game');
   buttonResetElement.addEventListener('click', (event) => functionalities.resetGame(numberOfColors));
+
+  //const scoreElement = document.querySelector('#score');
+  //scoreElement.style.display = 'none';
 };
