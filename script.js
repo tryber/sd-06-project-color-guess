@@ -1,6 +1,11 @@
 
 functionalities = {
-  generateColorBalls: function generateColors() {
+  generateColorBalls: function generateBalls(numberOfColors) {
+    for (let i = 0; i < numberOfColors; i += 1) {
+      functionalities.generateColorBall();
+    }
+  },
+  generateColorBall: function generateColors() {
     const colorsContainer =document.querySelector('#colors-container');
     const colorElement = document.createElement('li');
     colorElement.className = 'ball';
@@ -35,15 +40,23 @@ functionalities = {
       answerElement.innerHTML = 'Errou! Tente novamente!';
     }
   },
+  resetGame: function reset(numberOfColors) {
+    functionalities.generateRandomColorToBeGuessed();
+    const allColorBalls = document.querySelectorAll('.ball');
+    const colorsContainer = document.querySelector('ul');
+    for (let i = 0; i < allColorBalls.length; i += 1) {
+      colorsContainer.removeChild(allColorBalls[i]);
+    }
+    functionalities.generateColorBalls(numberOfColors);
+  },
 };
-
-
 
 window.onload = function () {
   const numberOfColors = 6;
-  for (let i = 0; i < numberOfColors; i += 1) {
-    functionalities.generateColorBalls();
-  }
-  
+  functionalities.generateColorBalls(numberOfColors);
+    
   functionalities.generateRandomColorToBeGuessed();
-}
+  
+  const buttonResetElement = document.querySelector('#reset-game');
+  buttonResetElement.addEventListener('click', (event) => functionalities.resetGame(numberOfColors));
+};
