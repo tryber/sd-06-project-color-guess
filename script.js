@@ -5,6 +5,7 @@ functionalities = {
     const colorElement = document.createElement('li');
     colorElement.className = 'ball';
     colorElement.style.backgroundColor = functionalities.generateRandomColor();
+    colorElement.addEventListener('click', functionalities.verifyColor);
     colorsContainer.appendChild(colorElement);
   },
   generateRandomColor: function generateRandomColor() {
@@ -14,7 +15,27 @@ functionalities = {
     const color = ('rgb('.concat([redChannel, greenChannel, blueChannel].toString())).concat(')');
     return color;
   },
-}
+  generateRandomColorToBeGuessed: function mainColor() {
+    const allColors = document.querySelectorAll('.ball');
+    const numberColors = allColors.length;
+    const randomColor = Math.round((Math.random() * (numberColors - 1)) + 1);
+    const colorToBeGuessed = allColors[randomColor - 1].style.backgroundColor;
+    const colorToBeGuessedElement = document.querySelector('#rgb-color');
+    colorToBeGuessedElement.innerHTML = colorToBeGuessed;
+    const answerElement = document.querySelector('#answer');
+    answerElement.innerHTML = 'Escolha uma cor';
+  },
+  verifyColor: function verifyColor() {
+    const selectedBackground = document.querySelector('#rgb-color').innerHTML;
+    if (event.target.style.backgroundColor === selectedBackground) {
+      const answerElement = document.querySelector('#answer');
+      answerElement.innerHTML = 'Acertou!';
+    } else {
+      const answerElement = document.querySelector('#answer');
+      answerElement.innerHTML = 'Errou! Tente novamente!';
+    }
+  },
+};
 
 
 
@@ -23,4 +44,6 @@ window.onload = function () {
   for (let i = 0; i < numberOfColors; i += 1) {
     functionalities.generateColorBalls();
   }
+  
+  functionalities.generateRandomColorToBeGuessed();
 }
