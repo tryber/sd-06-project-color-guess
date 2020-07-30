@@ -24,17 +24,14 @@ window.onload = function () {
   resetButton.addEventListener('click', coloringCircles);
 }
 
-// Clicar e pegar a cor
-
 function chooseBall(event) {
   document.querySelector('.selected').classList.remove('selected');
   event.target.classList.add('selected');
   let selectedColor = document.querySelector('.selected').style.backgroundColor;
-  console.log(selectedColor)
+  return selectedColor;
 }
 
 ballsPalette.addEventListener('click', chooseBall);
-
 
 
 
