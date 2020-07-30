@@ -9,17 +9,22 @@ let reset = document.querySelector("#reset-game");
 
     for(let i = 0; i < bola.length; i++){
         bola[i].style.backgroundColor = "rgb("+ (Math.floor(Math.random() * 256)) + ", " + (Math.floor(Math.random() * 256)) + ", " + Math.floor(Math.random() * 256) + ")" ;
+
+      
     }
 
 
     bolas.addEventListener("click", function(event){
        var corSelect = event.target.style.backgroundColor
-       if(corSelect == gerada){
+       if(corSelect == gerada.innerText){
         answer.innerText = "Acertou!";
        }else{
         answer.innerText = "Errou! Tente novamente!";
        }
     })
+
+
+
 
 
     reset.addEventListener("click", function(){
@@ -28,7 +33,6 @@ let reset = document.querySelector("#reset-game");
         }
         answer.innerText = "Escolha uma cor";
         gerada.innerText = "rgb("+ (Math.floor(Math.random() * 256)) + ", " + (Math.floor(Math.random() * 256)) + ", " + Math.floor(Math.random() * 256) + ")" ;
-
     })
 
 
