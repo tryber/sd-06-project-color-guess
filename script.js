@@ -44,9 +44,14 @@ function createBalls() {
   }
 }
 
+function score() {
+  total = pontos += grade;
+  scoreShow.innerHTML = string1 + total;
+} 
+
 ballsList.addEventListener('click', function (event) {
   if (event.target.style.backgroundColor === colorToMatchStr2) {
-    avaliator.innerHTML = 'Acertou!';
+  avaliator.innerHTML = 'Acertou!';
     score();
 
   } else {
@@ -63,15 +68,11 @@ resetBtn.addEventListener('click', function () {
     index += 1;
     ballsList.removeChild(rmvBalls);
   }
+  avaliator.innerHTML = 'Escolha uma cor';
   randomColors();
   colorToMatch();
   createBalls();
-})
-
-function score() {
-  total = pontos += grade;
-  scoreShow.innerHTML = string1 + total;
-}
+});
 
 window.onload = function name() {
   randomColors();
