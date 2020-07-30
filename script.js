@@ -6,7 +6,7 @@ window.onload = function name(params) {
 
 const showColor = document.querySelector('#rgb-color');
 const ballsList = document.querySelector('#create-balls');
-const avaliator = document.querySelector('#avaliator')
+const avaliator = document.querySelector('#answer')
 let colorToMatchStr = '';
 let colorToMatchStr2 = '';
 let colors = [];
