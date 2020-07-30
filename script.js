@@ -2,15 +2,19 @@ window.onload = function name(params) {
   randomColors();
   colorToMatch();
   createBalls();
+  carregarPag();
 }
 
 const showColor = document.querySelector('#rgb-color');
 const ballsList = document.querySelector('#create-balls');
 const avaliator = document.querySelector('#answer');
 const resetBtn = document.querySelector('#reset-game');
+const scoreShow = document.querySelector('#score');
 let colorToMatchStr = '';
 let colorToMatchStr2 = '';
 let colors = [];
+let pontos = 0;
+let total = 0;
 
 function randomColors() {
   let j = 0; 
@@ -45,13 +49,28 @@ function createBalls() {
  ballsList.addEventListener('click', function (event) {
   if (event.target.style.backgroundColor === colorToMatchStr2) {
     avaliator.innerHTML = "Acertou!";
+    score();
+
   }else{
     avaliator.innerHTML = "Errou! Tente novamente!";
   }
  })
 
   resetBtn.addEventListener('click', function () {
+    const scoreSave = scoreShow.innerHTML;
+    localStorage.setItem('score', scoreSave);
     location.reload();
   })
+
+  function carregarPag() {
+    if (localStorage.score !== undefined) {
+      scoreShow.innerHTML = localStorage.score;
+    }
+  }
+
+  function score() {
+    total = pontos += 3;
+    scoreShow.innerHTML = 'Pontuação:' + total;
+  }
 
 
