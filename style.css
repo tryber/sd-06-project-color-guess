@@ -1,8 +1,8 @@
 html {
   background: radial-gradient(ellipse at top center, rgb(20, 24, 25) 8%, rgb(30, 34, 35) 100%);
+  font-size: 16px;
   margin: 0;
   min-height: 100vh;
-  font-size: 16px;
 }
 
 body {
@@ -10,9 +10,9 @@ body {
 }
 
 #container {
-  width: 45%;
   margin: auto;
   text-align: center;
+  width: 45%;
 }
 
 header {
@@ -52,8 +52,8 @@ h2 {
   color: rgb(220, 224, 225);
   font-family: 'Roboto', sans-serif;
   font-size: 1.6em;
-  margin: 0 0 20px 0;
   letter-spacing: 0.1em;
+  margin: 0 0 20px 0;
   text-align: center;
   text-shadow: 0px 0px 6px #000000, 0px 0px 2px #000000;
 }
@@ -86,8 +86,8 @@ h2 {
 #balls {
   background: rgba(240, 243, 250, .9);
   border-radius: 50px 0;
-  padding: 6px 0 0;
   margin: auto;
+  padding: 6px 0 0;
 }
 
 #center-balls {
