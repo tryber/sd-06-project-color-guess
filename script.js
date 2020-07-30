@@ -3,7 +3,7 @@ window.onload = function(){
     let bolas = document.querySelector(".bolas");
     let gerada = document.querySelector("#rgb-color")
     let answer = document.querySelector("#answer")
-
+let reset = document.querySelector("#reset-game");
     gerada.innerText = "rgb("+ (Math.floor(Math.random() * 256)) + ", " + (Math.floor(Math.random() * 256)) + ", " + Math.floor(Math.random() * 256) + ")" ;
 
 
@@ -19,6 +19,16 @@ window.onload = function(){
        }else{
         answer.innerText = "Errou! Tente novamente!";
        }
+    })
+
+
+    reset.addEventListener("click", function(){
+        for(let i = 0; i < bola.length; i++){
+            bola[i].style.backgroundColor = "rgb("+ (Math.floor(Math.random() * 256)) + ", " + (Math.floor(Math.random() * 256)) + ", " + Math.floor(Math.random() * 256) + ")" ;
+        }
+        answer.innerText = "Escolha uma cor";
+        gerada.innerText = "rgb("+ (Math.floor(Math.random() * 256)) + ", " + (Math.floor(Math.random() * 256)) + ", " + Math.floor(Math.random() * 256) + ")" ;
+
     })
 
 
