@@ -32,17 +32,17 @@ function generateRandomColor() {
 
 // Cria as 6 bolas de cores
 function generateColors() {
-  const colorsTo = [];
+  const arrayOfColors = [];
   for (let index = 0; index < 6; index += 1) {
-    colorsTo.push(generateRandomColor());
+    arrayOfColors.push(generateRandomColor());
   }
-  return colorsTo;
+  return arrayOfColors;
 }
 
 // escolhe uma das cores geradas na paleta para adivinhar
 function selectColorGuess() {
-  colorToGuess = colors[Math.ceil(Math.random() * colors.length)];
-  return colorToGuess;
+  const selectedColor = colors[Math.ceil(Math.random() * colors.length)];
+  return selectedColor;
 }
 
 // Atualiza score
@@ -62,7 +62,7 @@ function initGame() {
   // cria as bolas coloridas
   createColorBalls();
   // escolhe uma cor da paleta gerada
-  selectColorGuess();
+  colorToGuess = selectColorGuess();
   const rgbColor = document.querySelector('#rgb-color');
   rgbColor.innerHTML = colorToGuess;
   answer.innerHTML = 'Escolha uma cor';
@@ -86,16 +86,17 @@ runNow.addEventListener('click', function (event) {
     } else {
       answer.innerHTML = 'Errou! Tente novamente!';
       count += 1;
-      if (score >= 0) {
+      if (score > 0) {
         score -= 1;
       }
     }
   }
   updateScore();
 });
-// runNow.addEventListener('mouseover', function (event) {
-//   console.log(event.target.style.backgroundColor);
-// });
+runNow.addEventListener('mouseover', function (event) {
+  console.log(event.target.style.backgroundColor);
+  console.log(colorToGuess);
+});
 
 window.onload = function () {
   // Inicializa o jogo
