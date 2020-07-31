@@ -13,6 +13,15 @@ function generateBalls(numberOfBalls) {
     }
 }
 
+function generateText(numberOfBalls) {
+    const balls = document.getElementsByClassName('ball');
+    const index = Math.floor(Math.random() * (numberOfBalls))
+    let innerText = window.getComputedStyle(balls[index], null).getPropertyValue('background-color');
+    innerText = innerText.slice(3);
+    document.getElementById('rgb-color').innerText = innerText;
+}
+
 window.onload = function () {
     generateBalls(4);
+    generateText(4);
 }
