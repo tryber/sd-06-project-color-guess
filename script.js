@@ -51,11 +51,14 @@ runNow.addEventListener('click', function (event) {
       answer.innerHTML = 'Acertou!';
       count += 1;
     } else {
-      answer.innerHTML = 'Errou! Tente novamente!'
+      answer.innerHTML = 'Errou! Tente novamente!';
       count += 1;
     }
   }
 });
+// runNow.addEventListener('mouseover', function (event) {
+//   console.log(event.target.style.backgroundColor);
+// });
 
 window.onload = function () {
   // gera paleta de cores
