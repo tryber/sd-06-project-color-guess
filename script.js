@@ -46,7 +46,7 @@ function checkColor(event) {
     fillBalls();
     fillLevelColor();
   } else {
-    answer.innerText = 'Errou! Tente Novamente!';
+    answer.innerText = 'Errou! Tente Novamente';
   }
 }
 
