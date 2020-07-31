@@ -4,7 +4,7 @@ const randomColor2 = '#' + ((1 << 24) * Math.random()|0).toString(16);
 const randomColor3 = '#' + ((1 << 24) * Math.random()|0).toString(16);
 const randomColor4 = '#' + ((1 << 24) * Math.random()|0).toString(16);
 const randomColor5 = '#' + ((1 << 24) * Math.random()|0).toString(16);
-let balls = document.querySelectorAll('.ball');
+const balls = document.querySelectorAll('.ball');
 balls[0].style.backgroundColor = randomColor0;
 balls[1].style.backgroundColor = randomColor1;
 balls[2].style.backgroundColor = randomColor2;
@@ -44,7 +44,7 @@ function reset() {
   const randomColor3 = '#' + ((1 << 24) * Math.random()|0).toString(16);
   const randomColor4 = '#' + ((1 << 24) * Math.random()|0).toString(16);
   const randomColor5 = '#' + ((1 << 24) * Math.random()|0).toString(16);
-  let balls = document.querySelectorAll('.ball');
+  const balls = document.querySelectorAll('.ball');
   balls[0].style.backgroundColor = randomColor0;
   balls[1].style.backgroundColor = randomColor1;
   balls[2].style.backgroundColor = randomColor2;
