@@ -1,1 +1,17 @@
-/* Iniciando Projeto /*
+/* Iniciando Projeto */
+
+.color-container {
+  border: 1px black solid;
+  width: 70%;
+  height: 80px;
+}
+
+.ball {
+  border: 1px black solid;
+  border-radius: 100%;
+  display: inline-block;
+  height: 50px;
+  margin-left: 25px;
+  margin-top: 15px;
+  width: 50px;
+}
