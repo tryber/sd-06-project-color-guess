@@ -56,7 +56,11 @@ function loadHighScore() {
 
 function updateScore(hit) {
   if (hit) {
-    score += 3;
+    if (hardMode) {
+      score += 6;
+    } else {
+      score += 3;
+    }
     const scoreElement = document.getElementById('score');
     scoreElement.innerText = score;
     level += 1;
@@ -179,7 +183,7 @@ function loadHardMode() {
   hardMode = true;
   localStorage.setItem('hard-mode', '1');
   level = -1;
-  score = -3;
+  score = -6;
   updateScore(true);
   fillBalls();
   fillLevelColor();
