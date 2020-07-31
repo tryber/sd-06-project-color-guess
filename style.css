@@ -1,14 +1,14 @@
 /* Início do StyleSheet */
 .center {
   display: inline-block;
-text-align: center;
+  text-align: center;
 }
 
 .ball {
+  border: solid 1px black;
+  border-radius: 50%;
   display: inline-block;
   height: 80px;
-  width: 80px;
-  border-radius: 50%;
   margin: 5px;
-  border: solid 1px black;
+  width: 80px;
 }

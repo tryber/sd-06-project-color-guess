@@ -1,5 +1,9 @@
 // Criação das bolas coloridas
 let colors;
+let count = 0;
+let colorToGuess = 'rgb(0, 0, 0)';
+const answer = document.querySelector('#answer');
+answer.innerHTML = 'Escolha uma cor';
 
 function createColorBalls() {
   const balls = document.querySelector('#balls');
@@ -35,9 +39,23 @@ function generateColors() {
 
 // escolhe uma das cores geradas na paleta para adivinhar
 function selectColorGuess() {
-  const colorToRun = colors[0].substring(3);
-  return colorToRun;
+  colorToGuess = colors[Math.ceil(Math.random() * colors.length)];
+  return colorToGuess;
 }
+
+const runNow = document.getElementById('balls');
+runNow.addEventListener('click', function (event) {
+  const runner = event.target;
+  if (runner.className === 'ball' && count === 0) {
+    if (runner.style.backgroundColor === colorToGuess) {
+      answer.innerHTML = 'Acertou!';
+      count += 1;
+    } else {
+      answer.innerHTML = 'Errou! Tente novamente!'
+      count += 1;
+    }
+  }
+});
 
 window.onload = function () {
   // gera paleta de cores
@@ -46,5 +64,5 @@ window.onload = function () {
   createColorBalls();
   // escolhe uma cor da paleta gerada
   const rgbColor = document.querySelector('#rgb-color');
-  rgbColor.innerHTML = selectColorGuess();
-}
+  rgbColor.innerHTML = selectColorGuess().substring(3);
+};
