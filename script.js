@@ -49,6 +49,7 @@ balls[2].style.backgroundColor = randomColor2;
 balls[3].style.backgroundColor = randomColor3;
 balls[4].style.backgroundColor = randomColor4;
 balls[5].style.backgroundColor = randomColor5;
+showColor.innerHTML = `(${hexToRgb(randomColor4).r}, ${hexToRgb(randomColor4).g}, ${hexToRgb(randomColor4).b})`;
 document.getElementById('answer').innerHTML = 'Escolha uma cor';
 }
 let btn = document.getElementById('reset-game');
