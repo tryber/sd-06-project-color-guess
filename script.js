@@ -26,7 +26,7 @@ function bolaCerta() {
     return document.getElementById('answer').innerHTML = 'Acertou!', document.getElementById('score').innerHTML = `Placar: ${acertos += 3}`;
 
 }
-balls[4].addEventListener('click', bolaCerta)
+balls[4].addEventListener('click', bolaCerta);
 function bolaErrada() {
     return document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
 }
