@@ -4,6 +4,7 @@ let count = 0;
 let score = 0;
 let colorToGuess;
 const answer = document.querySelector('#answer');
+const scoreRun = document.querySelector('#score');
 
 function createColorBalls() {
   const balls = document.querySelector('#balls');
@@ -31,7 +32,7 @@ function generateRandomColor() {
 
 // Cria as 6 bolas de cores
 function generateColors() {
-  let colorsTo = [];
+  const colorsTo = [];
   for (let index = 0; index < 6; index += 1) {
     colorsTo.push(generateRandomColor());
   }
@@ -42,6 +43,11 @@ function generateColors() {
 function selectColorGuess() {
   colorToGuess = colors[Math.ceil(Math.random() * colors.length)];
   return colorToGuess;
+}
+
+// Atualiza score
+function updateScore() {
+  scoreRun.innerHTML = `Placar: ${score}`;
 }
 
 // Inicializa o jogo
@@ -61,12 +67,14 @@ function initGame() {
   rgbColor.innerHTML = colorToGuess;
   answer.innerHTML = 'Escolha uma cor';
   count = 0;
-};
+  updateScore();
+}
 
 // Botão que chama a funcão para reinicializar o jogo
 const resetNow = document.querySelector('#reset-game');
 resetNow.addEventListener('click', initGame);
 
+// Verifica se a cor está correta quando clica na bola;
 const runNow = document.getElementById('balls');
 runNow.addEventListener('click', function (event) {
   const runner = event.target;
@@ -83,6 +91,7 @@ runNow.addEventListener('click', function (event) {
       }
     }
   }
+  updateScore();
 });
 // runNow.addEventListener('mouseover', function (event) {
 //   console.log(event.target.style.backgroundColor);
