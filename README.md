@@ -7,7 +7,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 ### 🗒 ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git@github.com:betrybe/sd-06-project-color-guess.git`.
+  * `git@github.com:tryber/sd-06-project-color-guess.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-06-project-color-guess`
 
