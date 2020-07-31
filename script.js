@@ -36,7 +36,7 @@ balls[2].addEventListener('click', bolaErrada)
 balls[3].addEventListener('click', bolaErrada)
 balls[5].addEventListener('click', bolaErrada)
 function reset() {
-    let randomColor0 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let randomColor0 = '#' + ((1<<24)*Math.random()|0).toString(16);
 let randomColor1 = '#' + ((1<<24)*Math.random()|0).toString(16);
 let randomColor2 = '#' + ((1<<24)*Math.random()|0).toString(16);
 let randomColor3 = '#' + ((1<<24)*Math.random()|0).toString(16);
