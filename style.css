@@ -1,0 +1,111 @@
+* {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.game-container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+}
+
+.game {
+  align-items: center;
+  background-color: rgb(240 , 240 , 245);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* tittle */
+h1 {
+  animation: colors 2.0s infinite;
+  background-color: aqua;
+  border-radius: 8px;
+  font-size: 44px;
+  letter-spacing: 10px;
+  padding: 6px;
+}
+
+@keyframes colors {
+  14% {background-color: mediumvioletred;}
+  14% {color: burlywood;}
+
+  28% {background-color: lime;}
+  28% {color: darkblue;}
+
+  42% {background-color: indigo;}
+  42% {color: white;}
+
+  56% {background-color: red;}
+  56% {color: aqua;}
+
+  70% {background-color: lightslategray;}
+  70% {color: mediumvioletred;}
+
+  88% {background-color: slateblue;}
+  88% {color: black;}
+
+  100% {background-color: blue;}
+  100% {color: black;}
+}
+
+/* level */
+
+.guess-text {
+  font-size: 30px;
+}
+
+.guess-text span {
+  margin-left: 6px;
+}
+
+/* command */
+.command-text {
+  font-weight: 700;
+}
+
+/* balls */
+.ball-container {
+  display: flex;
+}
+
+.ball {
+  border: 1px solid black;
+  border-radius: 100%;
+  cursor: pointer;
+  height: 60px;
+  margin: 0 12px;
+  width: 60px;
+}
+
+/* score */
+h2 {
+  font-family: Ranchers, cursive;
+  font-size: 64px;
+  letter-spacing: 4px;
+}
+
+/* button */
+button {
+  background-color: black;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  padding: 12px;
+}
+
+button:active {
+  background-color: white;
+  color: black;
+}
+
+button:focus {
+  border: none;
+  outline: none;
+}
