@@ -1,0 +1,13 @@
+let randomColor0 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let randomColor1 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let randomColor2 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let randomColor3 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let randomColor4 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let randomColor5 = '#' + ((1<<24)*Math.random()|0).toString(16);
+let balls = document.querySelectorAll('.ball');
+balls[0].style.backgroundColor = randomColor0;
+balls[1].style.backgroundColor = randomColor1;
+balls[2].style.backgroundColor = randomColor2;
+balls[3].style.backgroundColor = randomColor3;
+balls[4].style.backgroundColor = randomColor4;
+balls[5].style.backgroundColor = randomColor5;
