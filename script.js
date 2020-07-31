@@ -1,5 +1,9 @@
 let score = 0;
 let level = 0;
+let hardMode = Boolean(localStorage.getItem('hard-mode')) || false;
+let lives = 3;
+let highScore = localStorage.getItem('high-score') || 0;
+let highestLevel = localStorage.getItem('high-level') || 0;
 
 function generateColor() {
   const red = Math.floor(Math.random() * 255);
@@ -23,6 +27,33 @@ function fillLevelColor() {
   display.innerText = color;
 }
 
+function updateHighScore() {
+  const highScoreElement = document.getElementById('high-score-container');
+  const levelScoreElement = document.getElementById('level-score-container');
+
+  if (hardMode) {
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem('high-score', highScore);
+    }
+
+    if (level > highestLevel) {
+      highestLevel = level;
+      localStorage.setItem('high-level', level);
+    }
+    highScoreElement.innerText = highScore;
+    levelScoreElement.innerText = highestLevel;
+  }
+}
+
+function loadHighScore() {
+  const highScoreElement = document.getElementById('high-score-container');
+  const levelScoreElement = document.getElementById('level-score-container');
+
+  highScoreElement.innerText = highScore;
+  levelScoreElement.innerText = highestLevel;
+}
+
 function updateScore(hit) {
   if (hit) {
     score += 3;
@@ -31,6 +62,46 @@ function updateScore(hit) {
     level += 1;
     const levelElement = document.getElementById('level');
     levelElement.innerText = level;
+    updateHighScore();
+  } else {
+    score = 0;
+    const scoreElement = document.getElementById('score');
+    scoreElement.innerText = score;
+  }
+}
+
+function updateHardModeLives() {
+  if (lives) {
+    const hps = document.querySelectorAll('.hp');
+    const currentLive = 'hp' + lives;
+    hps[lives - 1].classList.add(currentLive);
+    lives -= 1;
+  }
+
+  checkLives();
+}
+
+function checkLives() {
+  if (!lives) {
+    // show you lose modal
+
+    // reset level
+    level = 0;
+    const levelElement = document.getElementById('level');
+    levelElement.innerText = level;
+    fillBalls();
+    fillLevelColor();
+
+    // reset score
+    updateScore(false);
+
+    // reset hp
+    const hpContainer = document.querySelectorAll('.hp');
+    for (let i = 1; i <= 3; i += 1) {
+      const heartNumber = 'hp' + i
+      hpContainer[i - 1].classList.remove(heartNumber);
+    }
+    lives = 3;
   }
 }
 
@@ -47,6 +118,9 @@ function checkColor(event) {
     fillLevelColor();
   } else {
     answer.innerText = 'Errou! Tente novamente';
+    if (hardMode) {
+      updateHardModeLives();
+    }
   }
 }
 
@@ -61,12 +135,28 @@ function fillBalls() {
   })
 }
 
+function disableHardMode() {
+  hardMode = false;
+  localStorage.setItem('hard-mode', '');
+  const checkInput = document.getElementById('hard-mode-checker');
+  checkInput.checked = false;
+  checkInput.style.pointerEvents = 'all';
+
+  const hpContainer = document.querySelector('.hp-container');
+  const highScoreContainer = document.querySelector('.high-scores');
+
+  hpContainer.classList.add('not-hard-mode');
+  highScoreContainer.classList.add('not-hard-mode');
+}
+
 function enableButton() {
   const btn = document.querySelector('button');
 
   btn.onclick = () => {
     const answer = document.getElementById('answer');
     answer.innerText = 'Escolha uma cor';
+
+    disableHardMode();
 
     fillBalls();
     fillLevelColor();
@@ -77,6 +167,45 @@ function enableButton() {
   }
 }
 
+function checkHardMode() {
+  const checkInput = document.getElementById('hard-mode-checker');
+  if (hardMode) {
+    checkInput.checked = true;
+    loadHardMode();
+  }
+}
+
+function loadHardMode() {
+  hardMode = true;
+  localStorage.setItem('hard-mode', '1');
+  level = -1;
+  score = -3;
+  updateScore(true);
+  fillBalls();
+  fillLevelColor();
+  const answer = document.getElementById('answer');
+  answer.innerText = 'Escolha uma cor';
+  const checkInput = document.getElementById('hard-mode-checker');
+  checkInput.style.pointerEvents = 'none';
+
+  const hpContainer = document.querySelector('.hp-container');
+  const highScoreContainer = document.querySelector('.high-scores');
+
+  hpContainer.classList.remove('not-hard-mode');
+  highScoreContainer.classList.remove('not-hard-mode');
+}
+
+function enableHardMode() {
+  const checkInput = document.getElementById('hard-mode-checker');
+
+  checkInput.addEventListener('change', loadHardMode);
+}
+
+
+
 fillBalls();
 fillLevelColor();
 enableButton();
+checkHardMode();
+loadHighScore();
+enableHardMode();
