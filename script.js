@@ -19,8 +19,11 @@ function hexToRgb(randomColor4) {
     b: parseInt(result[3], 16)
   } : null;
 }
-let showColor = document.getElementById('rgb-color');
-showColor.innerHTML = `(${hexToRgb(randomColor4).r}, ${hexToRgb(randomColor4).g}, ${hexToRgb(randomColor4).b})`;
+function corInicial() {
+  let showColor = document.getElementById('rgb-color');
+  showColor.innerHTML = `(${hexToRgb(randomColor4).r}, ${hexToRgb(randomColor4).g}, ${hexToRgb(randomColor4).b})`;
+}
+corInicial();
 let acertos =0;
 function bolaCerta() {
   return document.getElementById('answer').innerHTML = 'Acertou!', document.getElementById('score').innerHTML = `Placar: ${acertos += 3}`;
