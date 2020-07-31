@@ -11,3 +11,13 @@ balls[2].style.backgroundColor = randomColor2;
 balls[3].style.backgroundColor = randomColor3;
 balls[4].style.backgroundColor = randomColor4;
 balls[5].style.backgroundColor = randomColor5;
+function hexToRgb(randomColor4) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(randomColor4);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+}
+let showColor = document.getElementById('rgb-color');
+showColor.innerHTML = `(${hexToRgb(randomColor4).r}, ${hexToRgb(randomColor4).g}, ${hexToRgb(randomColor4).b})`; 
