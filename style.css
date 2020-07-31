@@ -193,6 +193,16 @@ input[ type = 'checkbox' ] {
   top: 1px;
 }
 
+.streak-record:before {
+  content: '\f140';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 100%;
+  font-weight: 900;
+  position: absolute;
+  right: 105%;
+  top: 1px;
+}
+
 .not-hard-mode {
   display: none;
 }
@@ -206,5 +216,59 @@ input[ type = 'checkbox' ] {
 }
 
 .hp3 {
+  display: none;
+}
+
+/* footer */
+footer {
+  background-color: lavender;
+  display: flex;
+  font-size: 80%;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+/* modal */
+.modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  opacity: 0.9;
+  align-items: center;
+  display: flex;
+  transition: all 0.4s ease;
+}
+
+.modal-msg {
+  background-color: black;
+  height: 80%;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-msg p {
+  font-size: 45px;
+  color: white;
+  font-family: Ranchers, cursive;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.modal-msg p:after {
+  content: '\f7a9';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 200%;
+  font-weight: 900;
+  position: absolute;
+  right: 35%;
+  top: -200%;
+}
+
+.hide {
   display: none;
 }
