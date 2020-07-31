@@ -7,8 +7,7 @@ let colorToMatchStr = '';
 let colorToMatchStr2 = '';
 let colors = [];
 let pontos = 0;
-let total = 0;
-const grade = 3;
+let total = pontos;
 const string1 = 'Pontuação: ';
 const string2 = 'rgb';
 const string3 = 'background-color: rgb';
@@ -44,7 +43,7 @@ function createBalls() {
 }
 
 function score() {
-  total = pontos += grade;
+  total += 3;
   scoreShow.innerHTML = string1 + total;
 }
 
@@ -76,4 +75,4 @@ window.onload = function name() {
   randomColors();
   colorToMatch();
   createBalls();
-}
+};
