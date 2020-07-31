@@ -24,12 +24,12 @@ function generateRandomColor() {
 function generateBalls(numberOfBalls) {
   const gameArea = document.getElementById('game-area');
   for (let ball = 0; ball < numberOfBalls; ball += 1) {
-    const ball = document.createElement('div');
+    const balls = document.createElement('div');
     const color = generateRandomColor();
-    ball.classList.add('ball');
-    ball.style.backgroundColor = color;
-    ball.addEventListener('click', verifyAnswer);
-    gameArea.appendChild(ball);
+    balls.classList.add('ball');
+    balls.style.backgroundColor = color;
+    balls.addEventListener('click', verifyAnswer);
+    gameArea.appendChild(balls);
   }
 }
 
