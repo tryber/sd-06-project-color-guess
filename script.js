@@ -20,4 +20,16 @@ function hexToRgb(randomColor4) {
     } : null;
 }
 let showColor = document.getElementById('rgb-color');
-showColor.innerHTML = `(${hexToRgb(randomColor4).r}, ${hexToRgb(randomColor4).g}, ${hexToRgb(randomColor4).b})`; 
+showColor.innerHTML = `(${hexToRgb(randomColor4).r}, ${hexToRgb(randomColor4).g}, ${hexToRgb(randomColor4).b})`;
+function bolaCerta() {
+    return document.getElementById('answer').innerHTML = 'Acertou!';
+}
+balls[4].addEventListener('click', bolaCerta)
+function bolaErrada() {
+    return document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+}
+balls[0].addEventListener('click', bolaErrada)
+balls[1].addEventListener('click', bolaErrada)
+balls[2].addEventListener('click', bolaErrada)
+balls[3].addEventListener('click', bolaErrada)
+balls[5].addEventListener('click', bolaErrada)
