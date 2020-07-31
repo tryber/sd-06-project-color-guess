@@ -1,3 +1,14 @@
+function verifyAnswer(event) {
+    let color = event.target.style.backgroundColor;
+    color = color.slice(3);
+    console.log(color, document.getElementById('rgb-color').innerText)
+    if (color !== document.getElementById('rgb-color').innerText) {
+        document.getElementById('info').innerText = 'Errou! Tente novamente';
+    } else {
+        document.getElementById('info').innerText = 'Acertou!';
+    }
+}
+
 function generateRandomColor() {
     return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 }
@@ -9,6 +20,7 @@ function generateBalls(numberOfBalls) {
         const color = generateRandomColor();
         ball.classList.add('ball');
         ball.style.backgroundColor = color;
+        ball.addEventListener('click', verifyAnswer);
         gameArea.appendChild(ball);
     }
 }
@@ -22,6 +34,6 @@ function generateText(numberOfBalls) {
 }
 
 window.onload = function () {
-    generateBalls(4);
-    generateText(4);
+    generateBalls(6);
+    generateText(6);
 }
