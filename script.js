@@ -33,6 +33,7 @@ function appendBalls (array) {
     colorContainer.appendChild(newBall);
   }
 }
+
 let colorArr = generateColors(6)
 appendBalls(colorArr);
 
@@ -46,9 +47,10 @@ selected = colorArr[selected]
 
 let rgbText = document.querySelector('#rgb-color');
 rgbText.innerHTML = selected
-  
 
-// function appendBalls (num) {
-//  for (cont = 0; cont < num; cont += 1)
-//  colorContainer.appendChild(createBalls());
-// }
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('ball')) {
+    
+  }
+});
+
