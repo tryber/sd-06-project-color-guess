@@ -1,8 +1,8 @@
-var score = 0;
+let score = 0;
 
 function generateScore() {
   score += 3;
-  string = `Placar: ${score}`
+  const string = `Placar: ${score}`;
   document.getElementById('score').innerText = string;
 }
 
@@ -23,7 +23,7 @@ function generateRandomColor() {
 
 function generateBalls(numberOfBalls) {
   const gameArea = document.getElementById('game-area');
-  for (ball = 0; ball < numberOfBalls; ball += 1) {
+  for (let ball = 0; ball < numberOfBalls; ball += 1) {
     const ball = document.createElement('div');
     const color = generateRandomColor();
     ball.classList.add('ball');
@@ -35,7 +35,7 @@ function generateBalls(numberOfBalls) {
 
 function generateColorText(numberOfBalls) {
   const balls = document.getElementsByClassName('ball');
-  const index = Math.floor(Math.random() * (numberOfBalls))
+  const index = Math.floor(Math.random() * (numberOfBalls));
   let innerText = window.getComputedStyle(balls[index], null).getPropertyValue('background-color');
   innerText = innerText.slice(3);
   document.getElementById('rgb-color').innerText = innerText;
