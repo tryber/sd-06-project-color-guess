@@ -1,11 +1,19 @@
+var score = 0;
+
+function generateScore() {
+  score += 3;
+  string = `Placar: ${score}`
+  document.getElementById('score').innerText = string;
+}
+
 function verifyAnswer(event) {
   let color = event.target.style.backgroundColor;
   color = color.slice(3);
-  console.log(color, document.getElementById('rgb-color').innerText)
   if (color !== document.getElementById('rgb-color').innerText) {
     document.getElementById('answer').innerText = 'Errou! Tente novamente';
   } else {
     document.getElementById('answer').innerText = 'Acertou!';
+    generateScore();
   }
 }
 
