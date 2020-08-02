@@ -10,17 +10,22 @@ function generateColor() {
 }
 rgbColor.innerHTML = generateColor();
 
+//Generate a random number from 0 to 5.
+function randomNumber(max) {
+    return (Math.floor(Math.random()*Math.floor(max)));
+}
+randomNumber(6);
+console.log(randomNumber(6));
+
 //Generate the balls' color, and define the correct answer
 let balls = document.querySelectorAll('.ball');
 
 function rgbColorBall() {
-    const randomNumber = (Math.floor(Math.random())) * balls.length; //Generate a number between 0 and 5
     for (let index = 0; index < balls.length; index += 1) {
-        if (index === randomNumber) {
-            //let correctAnswer = rgbColor;
-            //correctAnswer = 'rgb' + correctAnswer;
-            let correctAnswer = balls[index].style.backgroundColor;
-            console.log(correctAnswer);
+        if (index === randomNumber(6)) {
+            balls[index].classList.add('correct-answer');
+            let rgbCorrectAnswer = rgbColor.innerHTML;
+            balls[index].style.backgroundColor = rgbCorrectAnswer;
         } else {
         let rgb = generateColor();
         balls[index].style.backgroundColor = rgb;
@@ -36,10 +41,10 @@ let divGameText = document.querySelector('.game-text')
 divGameText.appendChild(gameText);
 for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', function(event) {
-        let correctAnswer = rgbColor.innerHTML;
+        //let rgbCorrectAnswer = rgbColor.innerHTML;
         let UserAnswer = event.target.style.backgroundColor;
         
-        if (UserAnswer === correctAnswer) {
+        if (event.target.className === 'ball correct-answer') {
             gameText.innerHTML = 'Acertou!';
         } else {
             gameText.innerHTML = 'Errou! Tente novamente';
