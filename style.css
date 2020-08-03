@@ -1,7 +1,7 @@
 .ball {
-  border-radius: 150px;
   border: 1px solid black;
-  display: inline-block; 
+  border-radius: 150px;
+  display: inline-block;
   height: 60px;
   margin: 5px;
   width: 60px;
@@ -11,6 +11,7 @@
   height: 100px;
   width: 480px;
 }
+
 button {
   cursor: pointer;
   font: inherit;
