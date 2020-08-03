@@ -48,8 +48,8 @@ function updateGuessPresentation (answer) {
       answerFirstSlice.push(answer[i]);
     }
   }
-  editedAnswer =  answerFirstSlice.join('').toUpperCase() + " (" + answerSecondSlice + ")";
-  document.getElementById('rgb-color').innerText = editedAnswer;
+  editedAnswer =  answerFirstSlice.join('').toUpperCase() + " (" + answerSecondSlice +
+  document.getElementById('rgb-color').innerText ;
 }
 
 
@@ -73,7 +73,7 @@ function getNumbers (element) {
 
 function getResult (result) {
   let currentScoreBoard ;
-  if (result === 'Acertou') {
+  if (result === 'Acertou!') {
     currentScoreBoard = 3;
   }
   else {
@@ -101,7 +101,7 @@ function setTotalScore () {
     totalScorePoints  = Number(getNumbers(totalScoreElement.innerText));
     totalScorePoints += currentScorePoints;
   }
-  totalScoreElement.innerText = `Placar ${(totalScorePoints)}`;
+  totalScoreElement.innerText = `${(totalScorePoints)}`;
 }
 
 function removeCurrentScore() {
@@ -114,9 +114,9 @@ function compareElements(e,answer) {
   const correctAnswer = ` (${getNumbers(answer)})`;
   let gameResultText;
   if ( response === correctAnswer) {
-    gameResultText= 'Acertou';
+    gameResultText= 'Acertou!';
   } else {
-      gameResultText= 'Errou! Tente Novamente';
+      gameResultText= 'Errou! Tente Novamente!';
   }
   document.querySelector('#answer').innerText = gameResultText ;
   generateCurrentScore(getResult(gameResultText));
