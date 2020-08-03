@@ -22,56 +22,143 @@ function generateRandomColorCode() {
   return `(${numero})`;
 }
 
-function geraElementos(n) {
+function generateElements(n) {
   for(i = 0; i < n; i += 1) {
     const ball = document.createElement('div');
-    ball.className = 'ball'
-    const codigoCorGerada = generateRandomColorCode()
-
-    ball.style.backgroundColor = `rgb${codigoCorGerada}`;
+    ball.className = 'ball';
     document.getElementById('balls-container').appendChild(ball);
-
   }
 }
 
-function randomElementBackgroundColor() {
-  const balls = document.querySelectorAll('.ball');
-  const randomChoice = Math.ceil(Math.random()*(balls.length-1))
+function paintBalls() {
+  let balls = document.querySelectorAll('.ball');
   for (let i = 0; i < balls.length; i += 1) {
-    if (i === randomChoice) {
-      const backgroundColor = balls[i].style.backgroundColor;
-      document.getElementById('rgb-color').innerText += ` (${pegaNumeros(backgroundColor)})`;
-      return `rgb(${backgroundColor})`
+    let ball = balls[i];
+    let codigoCorGerada = generateRandomColorCode();
+    ball.style.backgroundColor = `rgb${codigoCorGerada}`;
+  }
+}
+
+function updateGuessPresentation (answer) {
+  let  answerFirstSlice = [];
+  let answerSecondSlice =  getNumbers(answer).substr(0,3) + ', ' + getNumbers(answer).substr(4,3) + ', ' + getNumbers(answer).substr(8,3)
+  let editedAnswer ;
+  for (let i in answer) {
+    if (i < 3) {
+      answerFirstSlice.push(answer[i]);
     }
   }
+  editedAnswer =  answerFirstSlice.join('').toUpperCase() + " (" + answerSecondSlice + ")";
+  document.getElementById('rgb-color').innerText = editedAnswer;
 }
 
-function pegaNumeros (element) {
+
+
+function chooseRandomAnswer() {
+  const balls = document.querySelectorAll('.ball');
+  const choiceIndex = Math.ceil(Math.random()*(balls.length-1));
+  const backgroundColor = balls[choiceIndex].style.backgroundColor;
+  return `${backgroundColor}`
+}
+
+function getNumbers (element) {
   let newElement = [] ;
   for(let i in element) {
-    if (Number(element[i]) === Number(element[i])  ) {
+    if (Number(element[i]) === Number(element[i] || element[i] === '')  ) {
       newElement.push(element[i]);
     }
   }
   return  newElement.join('')
 }
 
-function comparaElementos(e,answer) {
-
-  if (e.currentTarget.style.backgroundColor === answer) {
-    document.getElementById('answer').innerText = 'Acertou'
-  } else {
-      document.getElementById('answer').innerText = 'Errou! Tente Novamente'
+function getResult (result) {
+  let currentScoreBoard ;
+  if (result === 'Acertou') {
+    currentScoreBoard = 3;
   }
+  else {
+    currentScoreBoard = 0
+  }
+  return currentScoreBoard;
 }
 
-geraElementos(6);
-const balls = document.querySelectorAll('.ball');
-const answer = randomElementBackgroundColor();
-for (let i = 0; i < balls.length; i += 1) {
-  balls[i].addEventListener('click', function (e) {
-    comparaElementos(e,answer);
+function generateCurrentScore (currentResult) {
+  const board = document.createElement('div');
+  board.id = 'current-score';
+  board.innerText = currentResult;
+  main = document.getElementById('main');
+  main.appendChild(board);
+}
+
+function setTotalScore () {
+  const totalScoreElement = document.getElementById('score');
+  const currentScore = document.getElementById('current-score').innerText;
+  let currentScorePoints = Number(currentScore)
+  let totalScorePoints;
+  if (getNumbers(totalScoreElement.innerText) == " ") {
+    totalScorePoints = 0;
+  } else {
+    totalScorePoints  = Number(getNumbers(totalScoreElement.innerText));
+    totalScorePoints += currentScorePoints;
+  }
+  totalScoreElement.innerText = `Placar ${(totalScorePoints)}`;
+}
+
+function removeCurrentScore() {
+  document.getElementById('current-score').remove();
+}
+
+function compareElements(e,answer) {
+  const responseColor = e.currentTarget.style.backgroundColor;
+  const response = ` (${getNumbers(responseColor)})`;
+  const correctAnswer = ` (${getNumbers(answer)})`;
+  let gameResultText;
+  if ( response === correctAnswer) {
+    gameResultText= 'Acertou';
+  } else {
+      gameResultText= 'Errou! Tente Novamente';
+  }
+  document.querySelector('#answer').innerText = gameResultText ;
+  generateCurrentScore(getResult(gameResultText));
+  setTotalScore();
+  removeCurrentScore();
+}
+
+function removeAnswersEvents () {
+  const balls = document.querySelectorAll('.ball');
+  document.querySelector('#answer').innerText = 'Escolha uma cor';
+  document.querySelector('#rgb-color').innerText = 'RGB color';
+  balls.forEach((element) => {element.removeEventListener('click', function()
+  {}
+  )});
+}
+
+function newAnswersEvents () {
+  const balls = document.querySelectorAll('.ball');
+  const answer = chooseRandomAnswer();
+  updateGuessPresentation(answer);
+  balls.forEach((element) => {element.addEventListener('click', (e) => {
+    compareElements(e,answer);
+  })})
+}
+
+function resetGame() {
+  paintBalls();
+  removeAnswersEvents();
+  newAnswersEvents();
+}
+
+function restartEvents () {
+  resetButton = document.querySelector('#reset-game');
+  resetButton.addEventListener('click', (e) => {
+    resetGame();
   })
 }
 
+window.onload = () => {
+  generateElements(6);
+  paintBalls();
+  newAnswersEvents();
+  restartEvents();
+}
 
