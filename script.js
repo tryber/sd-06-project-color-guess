@@ -116,7 +116,7 @@ function compareElements(e,answer) {
   if ( response === correctAnswer) {
     gameResultText= 'Acertou!';
   } else {
-      gameResultText= 'Errou! Tente Novamente!';
+      gameResultText= 'Errou! Tente novamente!';
   }
   document.querySelector('#answer').innerText = gameResultText ;
   generateCurrentScore(getResult(gameResultText));
