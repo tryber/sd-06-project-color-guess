@@ -1,11 +1,12 @@
 body {
-  background-color: white;
+  background-color: cornflowerblue;
 }
 
 footer {
   font-size: 20px;
   font-weight: 900;
   text-align: center;
+  margin: 100px;
 }
 
 .title {
@@ -17,4 +18,18 @@ footer {
   font-size: 35px;
   margin: 20px;
   text-align: center;
+}
+
+.ball-collections {
+  text-align: center;
+}
+
+.ball {
+  border-radius: 100%;
+  border: 1px solid black;
+  box-shadow: 5px 5px 15px black;
+  display: inline-block;
+  height: 50px;
+  margin: 10px;
+  width: 50px;
 }
