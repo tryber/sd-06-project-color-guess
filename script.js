@@ -48,8 +48,8 @@ function updateGuessPresentation (answer) {
       answerFirstSlice.push(answer[i]);
     }
   }
-  editedAnswer =  answerFirstSlice.join('').toUpperCase() + " (" + answerSecondSlice +
-  document.getElementById('rgb-color').innerText ;
+  editedAnswer =  answerFirstSlice.join('').toUpperCase() + " (" + answerSecondSlice + ")"
+  document.getElementById('rgb-color').innerText = editedAnswer ;
 }
 
 
