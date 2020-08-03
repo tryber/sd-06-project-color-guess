@@ -9,12 +9,9 @@ let randomNumber = Math.ceil(Math.random()*randomColor.length);
 let isOk = false;
 
 
-
-//window.onload = initialLoad;
-//initialLoad();
-
-//Gerar as cores
-//function initialLoad() {
+if (localStorage.length === 0){
+    localStorage.setItem('Placar',0);
+}
    
     rgbColor.innerText = colorOfTheRound.split('rgb').pop(0);
     answerText.innerText = "Escolha uma cor!";
@@ -40,17 +37,22 @@ fatherDiv.addEventListener('click',checkIfIsCorrect);
 function checkIfIsCorrect(event){
     if(isOk === false){
         isOk = true;
-        let scoreBoard = parseInt(localStorage.getItem('Placar'));
-
+        
+        let scoreBoard = parseInt(localStorage.getItem('Placar'),10);
+     
         event.target.style.border = "5px solid purple";
+
         let removingSpace = event.target.style.backgroundColor.replace(/ /g,'');
         if ((event.target.className === 'ball') && (removingSpace === colorOfTheRound)){
             answerText.innerText = "Acertou! Novas cores";
-            scoreBoard+=1;
+            scoreBoard+=3;
             score.innerText=scoreBoard;
             localStorage.setItem('Placar',scoreBoard);
         } else {
             answerText.innerText = "Errou! Tente novamente";
+            scoreBoard-=1;
+            score.innerText=scoreBoard;
+            localStorage.setItem('Placar',scoreBoard);
         } 
     }
 }
