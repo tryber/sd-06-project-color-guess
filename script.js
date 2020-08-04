@@ -1,6 +1,9 @@
 const rgbText = document.getElementById('rgb-color');
 const ballsCollections = document.getElementById('ball-collections');
 const btnResetGame = document.getElementById('reset-game');
+const resultOfAnswer = document.getElementById('answer');
+resultOfAnswer.innerHTML = 'Escolha uma cor';
+const result = Math.floor(Math.random() * 6);
 
 // Gera uma RGB aleatória;
 function randomColor() {
@@ -18,13 +21,13 @@ function createBall(color) {
   return ballsOptions;
 }
 
-// Cria as bolinhas e sorteia aleatoriamente uma das cores para o jogo;
+// Cria as bolinhas e seleciona o rgb para descobrir;
 function createOptionsColors(options) {
   for (let index = 0; index < options.length; index += 1) {
     const balls = createBall(options[index]);
     ballsCollections.appendChild(balls);
   }
-  rgbText.innerText = options[Math.floor(Math.random() * 6)];
+  rgbText.innerText = options[result];
 }
 
 // Cria array de cores randomizadas;
@@ -37,9 +40,15 @@ function generateColorOptions() {
 }
 
 // Mostra o resultado;
-function resultOfGame() {
-  const answer = document.getElementById('answer');
-  answer.innerHTML = 'Escolha uma cor';
+function resultOfGame(event) {
+  const correctBall = document.getElementsByClassName('ball')[result];
+  const verify = event.target;
+  if (verify.style.backgroundColor === correctBall.style.backgroundColor) {
+    resultOfAnswer.innerHTML = 'Acertou!';
+  }
+  if (verify.style.backgroundColor !== correctBall.style.backgroundColor) {
+    resultOfAnswer.innerHTML = 'Errou! Tente novamente!';
+  }
 }
 
 // Reinicia o jogo com novas cores;
@@ -49,10 +58,11 @@ function resetGame() {
     clearBalls[index].remove();
   }
   generateColorOptions();
+  resultOfAnswer.innerHTML = 'Escolha uma cor';
 }
 
 window.onload = function () {
   btnResetGame.addEventListener('click', resetGame);
+  ballsCollections.addEventListener('click', resultOfGame);
   generateColorOptions();
-  resultOfGame();
 };
