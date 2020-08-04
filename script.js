@@ -2,7 +2,7 @@
 let colors;
 let count = 0;
 let score = 0;
-let colorToGuess;
+let colorToGuess = '';
 const answer = document.querySelector('#answer');
 const scoreRun = document.querySelector('#score');
 
@@ -41,7 +41,8 @@ function generateColors() {
 
 // escolhe uma das cores geradas na paleta para adivinhar
 function selectColorGuess() {
-  const selectedColor = colors[Math.ceil(Math.random() * colors.length)];
+  const index = Math.ceil(Math.random() * colors.length - 1);
+  const selectedColor = colors[index];
   return selectedColor;
 }
 
@@ -52,7 +53,7 @@ function updateScore() {
 
 // Inicializa o jogo
 function initGame() {
-  // reseta paleta
+  // reiniciar paleta
   const resetPalette = document.querySelector('#balls');
   while (resetPalette.firstChild) {
     resetPalette.removeChild(resetPalette.lastChild);
@@ -70,7 +71,7 @@ function initGame() {
   updateScore();
 }
 
-// Botão que chama a funcão para reinicializar o jogo
+// Botão que chama a função para reinicializar o jogo
 const resetNow = document.querySelector('#reset-game');
 resetNow.addEventListener('click', initGame);
 
@@ -92,10 +93,6 @@ runNow.addEventListener('click', function (event) {
     }
   }
   updateScore();
-});
-runNow.addEventListener('mouseover', function (event) {
-  console.log(event.target.style.backgroundColor);
-  console.log(colorToGuess);
 });
 
 window.onload = function () {
