@@ -41,7 +41,8 @@ function generateColors() {
 
 // escolhe uma das cores geradas na paleta para adivinhar
 function selectColorGuess() {
-  const index = Math.ceil(Math.random() * colors.length - 1);
+  const arrayOfColorsSize = colors.length - 1;
+  const index = Math.ceil(Math.random() * arrayOfColorsSize);
   const selectedColor = colors[index];
   return selectedColor;
 }
