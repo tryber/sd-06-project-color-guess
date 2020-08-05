@@ -3,20 +3,22 @@ const ballsDiv = document.querySelector('.balls');
 const answer = document.querySelector('#answer');
 const paragraph = document.createElement('p');
 const start = document.querySelector('#reset-game');
+const score = document.querySelector('#score');
+let bool = true;
+let pontuacao = 0;
 
 // Cor do placar para ser advinhada
 function colorsBoard() {
   const first = Math.ceil((Math.random()) * 256);
   const second = Math.ceil((Math.random()) * 256);
   const third = Math.ceil((Math.random()) * 256);
-  return 'rgb(' + first + ', ' + second + ', ' + third + ')';
+  return 'rgb(' + first + ' , ' + second + ' , ' + third + ')';
 }
 
 // Gerando cor a ser adivinhada
 function generateColorScore() {
   color.innerHTML = colorsBoard();
 }
-generateColorScore();
 
 // Colocando a cor do placar numa posição aleatória dentre as 6 bolas
 function aleatColor() {
@@ -35,28 +37,46 @@ function generateColors(limit) {
   }
   aleatColor();
 }
-generateColors(6);
 
 // Padrões de Respostas
 function answers() {
   paragraph.innerHTML = 'Escolha uma cor';
   answer.appendChild(paragraph);
+  score.innerHTML = 'Pontuação no jogo: ' + pontuacao;
 }
-answers();
 
 // Resposta se a pessoa acertar/errar a cor
 function rightColor(event) {
   const click = event.target;
-  if ((click.style.background) === color.innerHTML) {
+  if (((click.style.background) === color.innerHTML)) {
     paragraph.innerHTML = 'Acertou!';
+    pontuacao += 3;
+    score.innerHTML = 'Pontuação no jogo: ' + pontuacao;
   } else {
     paragraph.innerHTML = 'Errou! Tente novamente!';
   }
 }
-ballsDiv.addEventListener('click', rightColor);
 
-function startGame() {
-  window.location.reload();
+//Destruir bolas
+function destroyBalls() {
+  while (ballsDiv.firstChild) {
+    ballsDiv.removeChild(ballsDiv.firstChild);
+  }
 }
 
-start.addEventListener('click', startGame);
+// Resetar Jogo
+function startGame() {
+  destroyBalls();
+  generateColorScore();
+  generateColors(6);
+  let bool = true;
+  answers();
+}
+
+window.onload = function () {
+  generateColorScore();
+  generateColors(6);
+  answers();
+  ballsDiv.addEventListener('click', rightColor);
+  start.addEventListener('click', startGame);
+}
