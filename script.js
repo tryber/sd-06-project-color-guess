@@ -2,12 +2,7 @@ const color = document.querySelector('#rgb-color');
 const ballsDiv = document.querySelector('.balls');
 const answer = document.querySelector('#answer');
 const paragraph = document.createElement('p');
-
-// Gerando cor a ser adivinhada
-function generateColorScore() {
-  color.innerHTML = colorsBoard();
-}
-generateColorScore();
+const start = document.querySelector('#reset-game');
 
 // Cor do placar para ser advinhada
 function colorsBoard() {
@@ -16,6 +11,12 @@ function colorsBoard() {
   const third = Math.ceil((Math.random()) * 256);
   return 'rgb(' + first + ', ' + second + ', ' + third + ')';
 }
+
+// Gerando cor a ser adivinhada
+function generateColorScore() {
+  color.innerHTML = colorsBoard();
+}
+generateColorScore();
 
 // Colocando a cor do placar numa posição aleatória dentre as 6 bolas
 function aleatColor() {
@@ -37,7 +38,7 @@ function generateColors(limit) {
 generateColors(6);
 
 // Padrões de Respostas
-function answers() {  
+function answers() {
   paragraph.innerHTML = 'Escolha uma cor';
   answer.appendChild(paragraph);
 }
@@ -45,11 +46,17 @@ answers();
 
 // Resposta se a pessoa acertar/errar a cor
 function rightColor(event) {
-const click = event.target;
-if ((click.style.background) === color.innerHTML) {
-  paragraph.innerHTML = 'Acertou!';
-} else {
-  paragraph.innerHTML = 'Errou! Tente novamente!'
-};
+  const click = event.target;
+  if ((click.style.background) === color.innerHTML) {
+    paragraph.innerHTML = 'Acertou!';
+  } else {
+    paragraph.innerHTML = 'Errou! Tente novamente!';
+  }
 }
 ballsDiv.addEventListener('click', rightColor);
+
+function startGame() {
+  window.location.reload();
+}
+
+start.addEventListener('click', startGame);
