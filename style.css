@@ -5,7 +5,7 @@ body {
 footer {
   font-size: 20px;
   font-weight: 900;
-  margin: 50px;
+  margin-top: 100px;
   text-align: center;
 }
 
@@ -45,4 +45,28 @@ footer {
 
 .reset {
   text-align: center;
+}
+
+.score {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 20px;
+  text-align: center;
+}
+
+.btn-reset {
+  background-color: black;
+  border: gray solid 1px;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px 50px;
+}
+
+.btn-reset:hover {
+  background-color: gray;
+  border: black solid 1px;
+  padding: 12px 52px;
 }
