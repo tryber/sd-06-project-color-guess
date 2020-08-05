@@ -4,7 +4,6 @@ const answer = document.querySelector('#answer');
 const paragraph = document.createElement('p');
 const start = document.querySelector('#reset-game');
 const score = document.querySelector('#score');
-let bool = true;
 let pontuacao = 0;
 
 // Cor do placar para ser advinhada
@@ -12,7 +11,7 @@ function colorsBoard() {
   const first = Math.ceil((Math.random()) * 256);
   const second = Math.ceil((Math.random()) * 256);
   const third = Math.ceil((Math.random()) * 256);
-  return 'rgb(' + first + ' , ' + second + ' , ' + third + ')';
+  return 'rgb(' + first + ', ' + second + ', ' + third + ')';
 }
 
 // Gerando cor a ser adivinhada
@@ -52,12 +51,14 @@ function rightColor(event) {
     paragraph.innerHTML = 'Acertou!';
     pontuacao += 3;
     score.innerHTML = 'Pontuação no jogo: ' + pontuacao;
+    console.log(color.innerHTML);
   } else {
     paragraph.innerHTML = 'Errou! Tente novamente!';
+    console.log(color.innerHTML);
   }
 }
 
-//Destruir bolas
+// Destruir bolas
 function destroyBalls() {
   while (ballsDiv.firstChild) {
     ballsDiv.removeChild(ballsDiv.firstChild);
