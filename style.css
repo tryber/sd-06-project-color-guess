@@ -1,0 +1,25 @@
+.ball {
+  border: 1px solid black;
+  border-radius: 100%;
+  display: inline-block;
+  height: 50px;
+  margin: 5px;
+  width: 50px;
+}
+
+body {
+  background-image: url('imgs/fundo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-shadow: 3px 3px 8px black;
+}
+
+h1 {
+  font-size: 40px;
+}
