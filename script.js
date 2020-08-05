@@ -71,7 +71,7 @@ function startGame() {
   answers();
 }
 
-window.onload = function() {
+window.onload = function () {
   generateColorScore();
   generateColors(6);
   answers();
