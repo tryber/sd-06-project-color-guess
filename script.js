@@ -11,7 +11,7 @@ function colorsBoard() {
   const first = Math.ceil((Math.random()) * 256);
   const second = Math.ceil((Math.random()) * 256);
   const third = Math.ceil((Math.random()) * 256);
-  return 'rgb(' + first + ', ' + second + ', ' + third + ')';
+  return `rgb(${first}, ${second}, ${third})`;
 }
 
 // Gerando cor a ser adivinhada
@@ -41,7 +41,7 @@ function generateColors(limit) {
 function answers() {
   paragraph.innerHTML = 'Escolha uma cor';
   answer.appendChild(paragraph);
-  score.innerHTML = 'Pontuação no jogo: ' + pontuacao;
+  score.innerHTML = `Pontuação no jogo: ${pontuacao}`;
 }
 
 // Resposta se a pessoa acertar/errar a cor
@@ -50,11 +50,9 @@ function rightColor(event) {
   if (((click.style.background) === color.innerHTML)) {
     paragraph.innerHTML = 'Acertou!';
     pontuacao += 3;
-    score.innerHTML = 'Pontuação no jogo: ' + pontuacao;
-    console.log(color.innerHTML);
+    score.innerHTML = `Pontuação no jogo: ${pontuacao}`;
   } else {
     paragraph.innerHTML = 'Errou! Tente novamente!';
-    console.log(color.innerHTML);
   }
 }
 
@@ -70,14 +68,13 @@ function startGame() {
   destroyBalls();
   generateColorScore();
   generateColors(6);
-  let bool = true;
   answers();
 }
 
-window.onload = function () {
+window.onload = function() {
   generateColorScore();
   generateColors(6);
   answers();
   ballsDiv.addEventListener('click', rightColor);
   start.addEventListener('click', startGame);
-}
+};
