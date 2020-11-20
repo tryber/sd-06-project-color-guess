@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(120, 70, 157);
+  font-family: Montserrat, sans-serif;
+  margin: 30px;
+}
+
+.title {
+  color: white;
+  font-family: Galada, cursive;
+  font-size: 40px;
+}
+
+.ball {
+  border: 1px solid black;
+  border-radius: 100%;
+  display: inline-block;
+  height: 60px;
+  margin: 10px;
+  width: 60px;
+}
