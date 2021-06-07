@@ -1,0 +1,16 @@
+h1 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.color-guess {
+  text-align: center;
+}
+
+.ball {
+  border: solid black 1px;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 2%;
+  padding: 5%;
+}
