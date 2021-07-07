@@ -1,0 +1,41 @@
+.ball {
+  border: 1px solid black;
+  border-radius: 150px;
+  display: inline-block;
+  height: 60px;
+  margin: 5px;
+  width: 60px;
+}
+
+.balls {
+  height: 100px;
+  width: 480px;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.botao {
+  background: rgb(255 , 102 , 0);
+  border: 0;
+  border-radius: 0.5em;
+  box-shadow: 3px 3px 0 3px rgb(153 , 51 , 0);
+  color: white;
+  display: inline-block;
+  margin: 1.5em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px rgb(0 , 0 , 0 , 0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.botao:active {
+  box-shadow: 0 0 0 0 rgb(153 , 51,  0) , inset 4px 4px 4px rgb(153 , 51 , 0);
+  transform: translate(6px , 6px);
+}
+
+.botao:focus {
+  outline-style: none;
+}
