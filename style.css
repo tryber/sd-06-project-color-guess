@@ -1,0 +1,44 @@
+body {
+  font-family: monospace, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.ball {
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  height: 60px;
+  margin-left: 20px;
+  margin-top: 50px;
+  width: 60px;
+}
+
+.title {
+  margin-left: 200px;
+}
+
+.reset-game {
+  background-color: blue;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  height: 70px;
+  margin-left: 250px;
+  margin-top: 60px;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 70px;
+}
+
+.alinha {
+  display: inline-block;
+  margin-left: 250px;
+}
+
+.rgb-color {
+  margin-left: 250px;
+}
