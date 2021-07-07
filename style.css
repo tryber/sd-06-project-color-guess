@@ -1,0 +1,105 @@
+html {
+  background: radial-gradient(ellipse at top center, rgb(20, 24, 25) 8%, rgb(30, 34, 35) 100%);
+  font-size: 16px;
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#container {
+  margin: auto;
+  text-align: center;
+  width: 45%;
+}
+
+header {
+  background: rgba(220, 224, 225, 0.2);
+  border-radius: 12px;
+  padding: 8px 0 5px;
+}
+
+h1, h2 {
+  color: rgb(220, 224, 225);
+  font-family: 'Recursive', sans-serif;
+}
+
+h1 {
+  font-size: 2.3em;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin: 10px 2px 4px;
+}
+
+h2 {
+  font-size: 1.6em;
+  font-style: italic;
+  font-weight: 500;
+  margin: 10px 10px 24px 0;
+}
+
+#rgb-color {
+  color: rgb(220, 224, 225);
+  font-family: 'Recursive', sans-serif;
+  font-size: 1.6em;
+  font-style: italic;
+  margin: 32px 0 28px 0;
+}
+
+#answer-container {
+  color: rgb(220, 224, 225);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6em;
+  letter-spacing: 0.1em;
+  margin: 0 0 20px 0;
+  text-align: center;
+  text-shadow: 0 0 6px black, 0 0 2px black;
+}
+
+#answer {
+  display: inline-block;
+  margin: auto;
+}
+
+#answer .hands {
+  font-size: 1.6em;
+  margin: 0 8px;
+  opacity: 0.8;
+  vertical-align: top;
+}
+
+#reset {
+  color: orange;
+  float: right;
+  font-size: 1.7em;
+  position: relative;
+  right: 15%;
+  top: -35px;
+}
+
+#reset:hover {
+  cursor: pointer;
+}
+
+#balls {
+  background: rgba(240, 243, 250, 0.9);
+  border-radius: 50px 0;
+  margin: auto;
+  padding: 6px 0 0;
+}
+
+#center-balls {
+  margin: auto;
+  max-width: 600px;
+}
+
+div.ball {
+  background-color: grey;
+  border-radius: 50%;
+  display: inline-block;
+  height: 80px;
+  margin: 14px 8px;
+  width: 80px;
+}
