@@ -1,0 +1,72 @@
+body {
+  background-color: cornflowerblue;
+}
+
+footer {
+  font-size: 20px;
+  font-weight: 900;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  text-align: center;
+}
+
+.rgb-color {
+  font-size: 35px;
+  margin: 60px;
+  text-align: center;
+}
+
+.ball-collections {
+  text-align: center;
+}
+
+.ball {
+  border: 1px solid black;
+  border-radius: 100%;
+  box-shadow: 5px 5px 15px black;
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  margin: 10px;
+  width: 50px;
+}
+
+.answer {
+  color: black;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 20px;
+  text-align: center;
+}
+
+.reset {
+  text-align: center;
+}
+
+.score {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 20px;
+  text-align: center;
+}
+
+.btn-reset {
+  background-color: black;
+  border: gray solid 1px;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px 50px;
+}
+
+.btn-reset:hover {
+  background-color: gray;
+  border: black solid 1px;
+  padding: 12px 52px;
+}
