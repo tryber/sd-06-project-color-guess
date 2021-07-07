@@ -1,0 +1,40 @@
+/* Iniciando Projeto */
+
+h1 {
+  text-align: center;
+}
+
+.guess-container {
+  text-align: center;
+}
+
+span {
+  color: red;
+  font-size: 24px;
+  
+}
+
+.button-container {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.color-container {
+  border: 1px black solid;
+  margin: auto;
+  width: 36%;
+  height: 80px;
+}
+
+.ball {
+  border: 1px black solid;
+  border-radius: 100%;
+  display: inline-block;
+  height: 50px;
+  margin-left: 25px;
+  margin-top: 15px;
+  width: 50px;
+}
